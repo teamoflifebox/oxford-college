@@ -9,18 +9,22 @@ import {
   CreditCard, 
   Bell, 
   BarChart3, 
-  Settings, 
   FileText,
   GraduationCap,
-  Building2,
   Code,
   MessageCircle,
   Sparkles
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 
+type UserRole = 'student' | 'faculty' | 'hod' | 'principal' | 'director';
+interface AuthUser {
+  role: UserRole;
+  // add other user properties if needed
+}
+
 const Sidebar: React.FC = () => {
-  const { user } = useAuth();
+  const { user } = useAuth() as { user: AuthUser | null };
   const navigate = useNavigate();
   const location = useLocation();
 
