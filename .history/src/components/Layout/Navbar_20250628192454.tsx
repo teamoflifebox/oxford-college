@@ -138,8 +138,7 @@ import {
   GraduationCap,
   Settings,
   Menu,
-  X,
-  User,
+  X
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 
@@ -148,23 +147,18 @@ const Navbar: React.FC = () => {
   const navigate = useNavigate();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const getRoleDisplayName = (role: string) =>
-    role.charAt(0).toUpperCase() + role.slice(1);
+  const getRoleDisplayName = (role: string) => {
+    return role.charAt(0).toUpperCase() + role.slice(1);
+  };
 
   const getRoleBadgeColor = (role: string) => {
     switch (role) {
-      case 'student':
-        return 'status-info';
-      case 'faculty':
-        return 'status-success';
-      case 'hod':
-        return 'bg-accent-100 text-accent-800';
-      case 'principal':
-        return 'bg-warning-100 text-warning-800';
-      case 'director':
-        return 'bg-error-100 text-error-800';
-      default:
-        return 'status-info';
+      case 'student': return 'status-info';
+      case 'faculty': return 'status-success';
+      case 'hod': return 'bg-accent-100 text-accent-800';
+      case 'principal': return 'bg-warning-100 text-warning-800';
+      case 'director': return 'bg-error-100 text-error-800';
+      default: return 'status-info';
     }
   };
 
@@ -174,81 +168,66 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className="sticky top-0 z-[60] bg-white/95 backdrop-blur-lg border-b border-neutral-200/50 shadow-soft">
-      <div className="container-custom w-full px-4 py-3 flex items-center justify-between">
-        {/* ─────────── Logo & role ─────────── */}
+    <nav className="sticky top-0 z-60 bg-white/95 backdrop-blur-lg border-b border-neutral-200/50 shadow-soft">
+      <div className="container-custom px-4 py-3 flex items-center justify-between">
+        {/* Left: Logo & Role */}
         <div className="flex items-center gap-3">
           <div className="relative">
             <div className="bg-gradient-primary p-2.5 rounded-xl shadow-soft">
               <GraduationCap className="w-6 h-6 text-white" />
             </div>
-            <div className="absolute -top-1 -right-1 w-3 h-3 bg-accent-500 rounded-full animate-pulse-gentle" />
+            <div className="absolute -top-1 -right-1 w-3 h-3 bg-accent-500 rounded-full animate-pulse-gentle"></div>
           </div>
-
           <div className="hidden sm:block">
             <h1 className="text-xl font-bold text-gradient">Oxford ERP</h1>
-            <p className="text-xs text-neutral-500 -mt-1">
-              Technology Excellence
-            </p>
+            <p className="text-xs text-neutral-500 -mt-1">Technology Excellence</p>
           </div>
-
           <div className="hidden md:block ml-2">
-            <span
-              className={`${getRoleBadgeColor(
-                user?.role || ''
-              )} px-3 py-1.5 rounded-full text-sm font-medium`}
-            >
+            <span className={`${getRoleBadgeColor(user?.role || '')} px-3 py-1.5 rounded-full text-sm font-medium`}>
               {getRoleDisplayName(user?.role || '')}
             </span>
           </div>
         </div>
 
-        {/* ─────────── Search (desktop) ─────────── */}
+        {/* Center: Search Bar */}
         <div className="hidden lg:block">
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400 w-4 h-4" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-neutral-400 w-4 h-4" />
             <input
               type="text"
               placeholder="Search..."
-              className="pl-10 pr-4 py-2.5 w-64 bg-neutral-50 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm"
+              className="pl-10 pr-4 py-2.5 w-64 bg-neutral-50 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 text-sm"
             />
           </div>
         </div>
 
-        {/* ─────────── Actions ─────────── */}
+        {/* Right: Actions */}
         <div className="flex items-center gap-3">
-          {/* Notifications */}
+          {/* Notification */}
           <button
             onClick={() => navigate('/notifications')}
             className="relative p-2.5 text-neutral-600 hover:text-primary-600 hover:bg-primary-50 rounded-xl transition"
           >
             <Bell className="w-5 h-5" />
-            <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-accent-500 rounded-full animate-bounce-gentle" />
+            <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-accent-500 rounded-full animate-bounce-gentle"></span>
           </button>
 
-          {/* Settings (≥ sm) */}
+          {/* Settings */}
           <button className="hidden sm:flex p-2.5 text-neutral-600 hover:text-primary-600 hover:bg-primary-50 rounded-xl transition">
             <Settings className="w-5 h-5" />
           </button>
 
-          {/* Profile (≥ sm) */}
+          {/* Profile */}
           <div className="hidden sm:flex items-center gap-2 border-l border-neutral-200 pl-3">
             <img
-              src={
-                user?.avatar ||
-                'https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg'
-              }
+              src={user?.avatar || 'https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg'}
               alt={user?.name}
               className="w-9 h-9 rounded-xl object-cover border-2 border-neutral-200 hover:border-primary-400 cursor-pointer transition-all"
               onClick={() => navigate('/profile')}
             />
             <div className="hidden md:block">
-              <p className="text-sm font-semibold text-neutral-900">
-                {user?.name}
-              </p>
-              <p className="text-xs text-neutral-500 truncate max-w-32">
-                {user?.department}
-              </p>
+              <p className="text-sm font-semibold text-neutral-900">{user?.name}</p>
+              <p className="text-xs text-neutral-500 truncate max-w-32">{user?.department}</p>
             </div>
             <button
               onClick={handleLogout}
@@ -258,45 +237,33 @@ const Navbar: React.FC = () => {
             </button>
           </div>
 
-          {/* Hamburger (mobile) */}
+          {/* Mobile Menu Button */}
           <button
             className="sm:hidden p-2 text-neutral-600 hover:text-primary-600 hover:bg-primary-50 rounded-xl"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
-            {mobileMenuOpen ? (
-              <X className="w-5 h-5" />
-            ) : (
-              <Menu className="w-5 h-5" />
-            )}
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </div>
 
-      {/* ─────────── Mobile dropdown ─────────── */}
+      {/* Mobile Dropdown Menu */}
       {mobileMenuOpen && (
-        <div className="sm:hidden px-4 pb-4 space-y-2 bg-white border-t border-neutral-200 shadow-sm">
+        <div className="block sm:hidden px-4 pb-4 space-y-2 bg-white border-t border-neutral-200 shadow-sm">
           <button
-            onClick={() => {
-              navigate('/notifications');
-              setMobileMenuOpen(false);
-            }}
+            onClick={() => navigate('/notifications')}
             className="flex items-center gap-2 w-full text-left text-neutral-700 py-2 hover:text-primary-600"
           >
             <Bell className="w-5 h-5" />
             Notifications
           </button>
-
           <button
-            onClick={() => {
-              navigate('/profile');
-              setMobileMenuOpen(false);
-            }}
+            onClick={() => navigate('/profile')}
             className="flex items-center gap-2 w-full text-left text-neutral-700 py-2 hover:text-primary-600"
           >
             <User className="w-5 h-5" />
             Profile
           </button>
-
           <button
             onClick={handleLogout}
             className="flex items-center gap-2 w-full text-left text-error-600 py-2 hover:bg-error-50 rounded-md"

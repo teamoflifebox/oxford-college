@@ -76,7 +76,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-neutral-50 via-primary-50/30 to-accent-50/20">
       <Navbar />
-
+      <br/><br/>
       {/* Sidebar */}
       <Sidebar />
 
