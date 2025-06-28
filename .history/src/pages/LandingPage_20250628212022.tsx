@@ -115,7 +115,7 @@ const LandingPage: React.FC = () => {
       
       {/* Hero Section */}
       <section className="pt-16 relative overflow-hidden">
-        {/* <Announcements/> */}
+        <Announcements/>
         {/* Background decorations */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-primary-200/30 to-secondary-200/30 rounded-full -translate-y-48 translate-x-48"></div>
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-forest-200/40 to-accent-200/40 rounded-full translate-y-32 -translate-x-32"></div>
@@ -177,11 +177,8 @@ const LandingPage: React.FC = () => {
                 </div>
               </div>
             </motion.div>
-           
           </div>
-           {/* <Announcements/> */}
         </div>
-        <Announcements/>
       </section>
       {/* About Section */}
       <section id="about" className="py-20 bg-white/50 backdrop-blur-sm">

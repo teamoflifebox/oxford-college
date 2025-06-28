@@ -20,7 +20,35 @@ import {
   Brain,
   Database
 } from 'lucide-react';
-import Announcements from './Announcements';
+const Announcements = () => {
+  const announcements = [
+    "🎓 Admissions open for 2025 - Apply now!",
+    "📢 Oxford TechFest 2025 registrations now live.",
+    "💼 Top recruiters: Google, Microsoft, Tesla visiting this season.",
+    "🧠 New course launched: AI in Healthcare",
+    "🏆 NAAC A++ Accreditation renewed for 2025",
+  ];
+
+  return (
+    <div className="bg-gradient-to-r from-primary-50 to-secondary-100 py-4 overflow-hidden border-y border-primary-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex space-x-4 animate-marquee whitespace-nowrap">
+          {announcements.map((item, index) => (
+            <span
+              key={index}
+              className="text-sm md:text-base text-primary-700 font-medium flex items-center space-x-2"
+            >
+              <span className="inline-block bg-primary-200 text-primary-900 px-3 py-1 rounded-full shadow-sm">
+                {item}
+              </span>
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
 
 const LandingPage: React.FC = () => {
   const navigate = useNavigate();
@@ -112,10 +140,9 @@ const LandingPage: React.FC = () => {
           </div>
         </div>
       </motion.nav>
-      
+
       {/* Hero Section */}
       <section className="pt-16 relative overflow-hidden">
-        {/* <Announcements/> */}
         {/* Background decorations */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-primary-200/30 to-secondary-200/30 rounded-full -translate-y-48 translate-x-48"></div>
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-forest-200/40 to-accent-200/40 rounded-full translate-y-32 -translate-x-32"></div>
@@ -177,12 +204,10 @@ const LandingPage: React.FC = () => {
                 </div>
               </div>
             </motion.div>
-           
           </div>
-           {/* <Announcements/> */}
         </div>
-        <Announcements/>
       </section>
+       <Announcements />
       {/* About Section */}
       <section id="about" className="py-20 bg-white/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -269,7 +294,7 @@ const LandingPage: React.FC = () => {
           </div>
         </div>
       </section>
-      {/* <Announcements/> */}
+
       {/* Facilities Section */}
       <section id="facilities" className="py-20 bg-white/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -422,7 +447,6 @@ const LandingPage: React.FC = () => {
           </motion.div>
         </div>
       </section>
-
 
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-white/50 backdrop-blur-sm">
