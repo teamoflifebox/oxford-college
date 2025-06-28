@@ -179,9 +179,8 @@ const LandingPage: React.FC = () => {
             </motion.div>
            
           </div>
-           {/* <Announcements/> */}
+           <Announcements/>
         </div>
-        <Announcements/>
       </section>
       {/* About Section */}
       <section id="about" className="py-20 bg-white/50 backdrop-blur-sm">
