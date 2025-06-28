@@ -1,11 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 @layer base {
   * {
@@ -21,10 +19,6 @@
     @apply bg-gradient-to-br from-neutral-50 via-primary-50/30 to-accent-50/20 font-sans text-neutral-900 antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
-  .card-nature {
-  @apply card bg-success-50 border-success-100;
-}
-
 
   /* Custom scrollbar */
   ::-webkit-scrollbar {

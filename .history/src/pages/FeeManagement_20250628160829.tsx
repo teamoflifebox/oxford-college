@@ -32,14 +32,14 @@ const FeeManagement: React.FC = () => {
 
   // Mock data for student fee view
   const studentFeeData = {
-    totalFee: 1025280,
-    paidAmount: 683520,
-    pendingAmount: 341760,
+    totalFee: 12000,
+    paidAmount: 8000,
+    pendingAmount: 4000,
     dueDate: '2024-02-15',
     installments: [
-      { id: 1, name: 'First Installment', amount: 341760, dueDate: '2023-08-15', status: 'paid', paidDate: '2023-08-10' },
-      { id: 2, name: 'Second Installment', amount: 341760, dueDate: '2023-12-15', status: 'paid', paidDate: '2023-12-12' },
-      { id: 3, name: 'Third Installment', amount: 341760, dueDate: '2024-02-15', status: 'pending', paidDate: null },
+      { id: 1, name: 'First Installment', amount: 4000, dueDate: '2023-08-15', status: 'paid', paidDate: '2023-08-10' },
+      { id: 2, name: 'Second Installment', amount: 4000, dueDate: '2023-12-15', status: 'paid', paidDate: '2023-12-12' },
+      { id: 3, name: 'Third Installment', amount: 4000, dueDate: '2024-02-15', status: 'pending', paidDate: null },
     ]
   };
 
@@ -50,8 +50,8 @@ const FeeManagement: React.FC = () => {
       name: 'John Smith', 
       rollNumber: 'CS2021001', 
       department: 'Computer Science',
-      totalFee: 1025280, 
-      paidAmount: 1025280, 
+      totalFee: 12000, 
+      paidAmount: 12000, 
       pendingAmount: 0, 
       status: 'paid',
       lastPayment: '2024-01-15',
@@ -62,9 +62,9 @@ const FeeManagement: React.FC = () => {
       name: 'Emily Johnson', 
       rollNumber: 'CS2021002', 
       department: 'Computer Science',
-      totalFee: 1025280, 
-      paidAmount: 683520, 
-      pendingAmount: 341760, 
+      totalFee: 12000, 
+      paidAmount: 8000, 
+      pendingAmount: 4000, 
       status: 'partial',
       lastPayment: '2023-12-10',
       parentPhone: '+1234567892'
@@ -74,9 +74,9 @@ const FeeManagement: React.FC = () => {
       name: 'Michael Brown', 
       rollNumber: 'CS2021003', 
       department: 'Computer Science',
-      totalFee: 1025280, 
-      paidAmount: 341760, 
-      pendingAmount: 683520, 
+      totalFee: 12000, 
+      paidAmount: 4000, 
+      pendingAmount: 8000, 
       status: 'overdue',
       lastPayment: '2023-08-15',
       parentPhone: '+1234567893'
@@ -86,8 +86,8 @@ const FeeManagement: React.FC = () => {
       name: 'Sarah Davis', 
       rollNumber: 'CS2021004', 
       department: 'Business Administration',
-      totalFee: 854400, 
-      paidAmount: 854400, 
+      totalFee: 10000, 
+      paidAmount: 10000, 
       pendingAmount: 0, 
       status: 'paid',
       lastPayment: '2024-01-20',
@@ -96,12 +96,12 @@ const FeeManagement: React.FC = () => {
   ];
 
   const feeCollectionData = [
-    { month: 'Aug', collected: 38448000, target: 42720000 },
-    { month: 'Sep', collected: 41011200, target: 42720000 },
-    { month: 'Oct', collected: 44428800, target: 44856000 },
-    { month: 'Nov', collected: 41865600, target: 42720000 },
-    { month: 'Dec', collected: 43574400, target: 44428800 },
-    { month: 'Jan', collected: 40156800, target: 42720000 },
+    { month: 'Aug', collected: 450000, target: 500000 },
+    { month: 'Sep', collected: 480000, target: 500000 },
+    { month: 'Oct', collected: 520000, target: 500000 },
+    { month: 'Nov', collected: 490000, target: 500000 },
+    { month: 'Dec', collected: 510000, target: 500000 },
+    { month: 'Jan', collected: 470000, target: 500000 },
   ];
 
   const feeStatusData = [
@@ -203,7 +203,7 @@ const FeeManagement: React.FC = () => {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm font-medium text-gray-600">Total Fee</p>
-                  <p className="text-3xl font-bold text-gray-900">{studentFeeData.totalFee.toLocaleString()}₹</p>
+                  <p className="text-3xl font-bold text-gray-900">${studentFeeData.totalFee.toLocaleString()}</p>
                 </div>
                 <div className="bg-blue-100 p-3 rounded-xl">
                   <DollarSign className="w-6 h-6 text-blue-600" />
@@ -215,7 +215,7 @@ const FeeManagement: React.FC = () => {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm font-medium text-gray-600">Paid Amount</p>
-                  <p className="text-3xl font-bold text-green-600">{studentFeeData.paidAmount.toLocaleString()}₹</p>
+                  <p className="text-3xl font-bold text-green-600">${studentFeeData.paidAmount.toLocaleString()}</p>
                 </div>
                 <div className="bg-green-100 p-3 rounded-xl">
                   <CheckCircle className="w-6 h-6 text-green-600" />
@@ -227,7 +227,7 @@ const FeeManagement: React.FC = () => {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm font-medium text-gray-600">Pending Amount</p>
-                  <p className="text-3xl font-bold text-red-600">{studentFeeData.pendingAmount.toLocaleString()}₹</p>
+                  <p className="text-3xl font-bold text-red-600">${studentFeeData.pendingAmount.toLocaleString()}</p>
                 </div>
                 <div className="bg-red-100 p-3 rounded-xl">
                   <AlertCircle className="w-6 h-6 text-red-600" />
@@ -241,8 +241,8 @@ const FeeManagement: React.FC = () => {
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Payment Progress</h3>
             <div className="mb-4">
               <div className="flex justify-between text-sm text-gray-600 mb-2">
-                <span>Paid: {studentFeeData.paidAmount.toLocaleString()}₹</span>
-                <span>Total: {studentFeeData.totalFee.toLocaleString()}₹</span>
+                <span>Paid: ${studentFeeData.paidAmount.toLocaleString()}</span>
+                <span>Total: ${studentFeeData.totalFee.toLocaleString()}</span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-3">
                 <div 
@@ -288,7 +288,7 @@ const FeeManagement: React.FC = () => {
                       </div>
                     </div>
                     <div className="text-right">
-                      <p className="font-medium text-gray-900">{installment.amount.toLocaleString()}₹</p>
+                      <p className="font-medium text-gray-900">${installment.amount.toLocaleString()}</p>
                       <span className={`px-3 py-1 rounded-full text-sm font-medium capitalize ${getStatusColor(installment.status)}`}>
                         {installment.status}
                       </span>
@@ -303,14 +303,10 @@ const FeeManagement: React.FC = () => {
           <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-lg font-semibold text-gray-900">Payment History</h3>
-                 <a
-                     href="/payment-receipt.pdf"
-                    download="Payment_Receipt.pdf"
-                    className="flex items-center space-x-2 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
-                  >
-                       <Download className="w-4 h-4" />
-                       <span>Download Receipt</span>
-                  </a>
+              <button className="flex items-center space-x-2 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors">
+                <Download className="w-4 h-4" />
+                <span>Download Receipt</span>
+              </button>
             </div>
             
             <div className="space-y-3">
@@ -323,7 +319,7 @@ const FeeManagement: React.FC = () => {
                       <p className="text-sm text-gray-600">Paid on {payment.paidDate} • Receipt sent to parent</p>
                     </div>
                   </div>
-                  <p className="font-medium text-green-600">{payment.amount.toLocaleString()}₹</p>
+                  <p className="font-medium text-green-600">${payment.amount.toLocaleString()}</p>
                 </div>
               ))}
             </div>
@@ -500,7 +496,7 @@ const FeeManagement: React.FC = () => {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Pending Amount</p>
-                <p className="text-3xl font-bold text-red-600">38,448₹</p>
+                <p className="text-3xl font-bold text-red-600">$450K</p>
               </div>
               <div className="bg-red-100 p-3 rounded-xl">
                 <AlertCircle className="w-6 h-6 text-red-600" />

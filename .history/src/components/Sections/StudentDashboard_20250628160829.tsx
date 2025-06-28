@@ -30,7 +30,7 @@ const StudentDashboard: React.FC = () => {
         />
         <DashboardCard
           title="Fee Balance"
-          value="102,528₹"
+          value="$1,200"
           icon={CreditCard}
           color="accent"
           subtitle="Due: Feb 15, 2024"

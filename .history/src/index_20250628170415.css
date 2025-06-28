@@ -21,10 +21,6 @@
     @apply bg-gradient-to-br from-neutral-50 via-primary-50/30 to-accent-50/20 font-sans text-neutral-900 antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
-  .card-nature {
-  @apply card bg-success-50 border-success-100;
-}
-
 
   /* Custom scrollbar */
   ::-webkit-scrollbar {

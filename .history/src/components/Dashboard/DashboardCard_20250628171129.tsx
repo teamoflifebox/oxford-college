@@ -5,7 +5,7 @@ interface DashboardCardProps {
   title: string;
   value: string | number;
   icon: React.ElementType;
-  color: 'primary' | 'secondary' | 'accent' | 'success' | 'warning' |'forest'|'error';
+  color: 'primary' | 'secondary' | 'accent' | 'success' | 'warning' | 'error';
   trend?: {
     value: number;
     isPositive: boolean;

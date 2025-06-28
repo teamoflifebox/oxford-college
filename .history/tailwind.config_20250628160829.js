@@ -194,7 +194,6 @@ export default {
         'gradient-success': 'linear-gradient(135deg, #22c55e 0%, #16a34a 100%)',
         'gradient-hero': 'linear-gradient(135deg, #0ea5e9 0%, #d946ef 50%, #0284c7 100%)',
         'gradient-card': 'linear-gradient(145deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%)',
-        'gradient-forest': 'linear-gradient(135deg, #14532d 0%, #166534 100%)',
       },
       backdropBlur: {
         xs: '2px',

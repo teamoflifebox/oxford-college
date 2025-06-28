@@ -52,7 +52,7 @@ const AdminDashboard: React.FC = () => {
         />
         <DashboardCard
           title="Monthly Revenue"
-          value="41,439₹"
+          value="$485K"
           icon={CreditCard}
           color="accent"
           trend={{ value: 12, isPositive: true }}

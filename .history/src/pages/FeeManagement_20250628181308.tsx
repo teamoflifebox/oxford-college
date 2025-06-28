@@ -303,14 +303,10 @@ const FeeManagement: React.FC = () => {
           <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-lg font-semibold text-gray-900">Payment History</h3>
-                 <a
-                     href="/payment-receipt.pdf"
-                    download="Payment_Receipt.pdf"
-                    className="flex items-center space-x-2 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
-                  >
-                       <Download className="w-4 h-4" />
-                       <span>Download Receipt</span>
-                  </a>
+              <button className="flex items-center space-x-2 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors">
+                <Download className="w-4 h-4" />
+                <span>Download Receipt</span>
+              </button>
             </div>
             
             <div className="space-y-3">
@@ -323,7 +319,7 @@ const FeeManagement: React.FC = () => {
                       <p className="text-sm text-gray-600">Paid on {payment.paidDate} • Receipt sent to parent</p>
                     </div>
                   </div>
-                  <p className="font-medium text-green-600">{payment.amount.toLocaleString()}₹</p>
+                  <p className="font-medium text-green-600">${payment.amount.toLocaleString()}</p>
                 </div>
               ))}
             </div>

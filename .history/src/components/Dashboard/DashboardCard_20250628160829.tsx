@@ -4,8 +4,8 @@ import { DivideIcon as LucideIcon } from 'lucide-react';
 interface DashboardCardProps {
   title: string;
   value: string | number;
-  icon: React.ElementType;
-  color: 'primary' | 'secondary' | 'accent' | 'success' | 'warning' |'forest'|'error';
+  icon: LucideIcon;
+  color: 'primary' | 'secondary' | 'accent' | 'success' | 'warning' | 'error';
   trend?: {
     value: number;
     isPositive: boolean;

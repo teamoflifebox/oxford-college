@@ -303,6 +303,7 @@ const FeeManagement: React.FC = () => {
           <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-lg font-semibold text-gray-900">Payment History</h3>
+              <button className="flex items-center space-x-2 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors">
                  <a
                      href="/payment-receipt.pdf"
                     download="Payment_Receipt.pdf"
@@ -311,6 +312,7 @@ const FeeManagement: React.FC = () => {
                        <Download className="w-4 h-4" />
                        <span>Download Receipt</span>
                   </a>
+              </button>
             </div>
             
             <div className="space-y-3">
