@@ -55,7 +55,7 @@ const FeeManagement: React.FC = () => {
       pendingAmount: 0, 
       status: 'paid',
       lastPayment: '2024-01-15',
-      parentPhone: '+1234567890'
+      parentPhone: '9542156929'
     },
     { 
       id: '2', 
@@ -67,7 +67,7 @@ const FeeManagement: React.FC = () => {
       pendingAmount: 4000, 
       status: 'partial',
       lastPayment: '2023-12-10',
-      parentPhone: '+1234567892'
+      parentPhone: '6304548382'
     },
     { 
       id: '3', 
@@ -79,7 +79,7 @@ const FeeManagement: React.FC = () => {
       pendingAmount: 8000, 
       status: 'overdue',
       lastPayment: '2023-08-15',
-      parentPhone: '+1234567893'
+      parentPhone: '9392296055'
     },
     { 
       id: '4', 
@@ -91,7 +91,7 @@ const FeeManagement: React.FC = () => {
       pendingAmount: 0, 
       status: 'paid',
       lastPayment: '2024-01-20',
-      parentPhone: '+1234567894'
+      parentPhone: '7671988410'
     },
   ];
 
