@@ -14,7 +14,7 @@ import ProfilePage from './pages/ProfilePage';
 import DocumentsPage from './pages/DocumentsPage';
 import AnalyticsPage from './pages/AnalyticsPage';
 import NotificationCenter from './components/WhatsApp/NotificationCenter';
-import ScrollToTop from './components/ScrollToTop';
+
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { user } = useAuth();
   return user ? <>{children}</> : <Navigate to="/login" />;
@@ -101,7 +101,6 @@ const App: React.FC = () => {
   return (
     <AuthProvider>
       <Router>
-        <ScrollToTop/>
         <AppRoutes />
       </Router>
     </AuthProvider>
