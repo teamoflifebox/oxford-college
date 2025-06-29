@@ -10,7 +10,6 @@
       Clock, 
       CheckCircle, 
       XCircle, 
-      Users,
       TrendingUp,
       Filter,
       Search,
@@ -19,16 +18,23 @@
       Wifi,
       WifiOff,
       Bell,
-      Settings,
       Activity,
       Zap
     } from 'lucide-react';
+
+    interface Notification {
+      id: string;
+      type: string;
+      status: string;
+      message: string;
+      parentPhone: string;
+      timestamp: string | number | Date;
+    }
 
     const EnhancedNotificationCenter: React.FC = () => {
       const { 
         isLoading, 
         error, 
-        lastNotification, 
         sendBulkNotification, 
         checkHealth,
         clearError 
@@ -36,7 +42,7 @@
       
       const { isConnected, lastUpdate } = useRealTimeUpdates();
       
-      const [notifications, setNotifications] = useState<any[]>([]);
+      const [notifications, setNotifications] = useState<Notification[]>([]);
       const [stats, setStats] = useState({
         total: 0,
         sent: 0,
@@ -55,10 +61,15 @@
         audience: 'all',
       });
 
+      const performHealthCheck = React.useCallback(async () => {
+        const healthy = await checkHealth();
+        setIsHealthy(healthy);
+      }, [checkHealth]);
+
       useEffect(() => {
         loadNotificationHistory();
         performHealthCheck();
-      }, []);
+      }, [performHealthCheck]);
 
       useEffect(() => {
         if (lastUpdate) {
@@ -74,9 +85,9 @@
           
           // Calculate stats
           const total = history.length;
-          const sent = history.filter((n: any) => n.status === 'sent').length;
-          const failed = history.filter((n: any) => n.status === 'failed').length;
-          const pending = history.filter((n: any) => n.status === 'pending').length;
+          const sent = history.filter((n: Notification) => n.status === 'sent').length;
+          const failed = history.filter((n: Notification) => n.status === 'failed').length;
+          const pending = history.filter((n: Notification) => n.status === 'pending').length;
           
           setStats({
             total,
@@ -90,10 +101,10 @@
         }
       };
 
-      const performHealthCheck = async () => {
-        const healthy = await checkHealth();
-        setIsHealthy(healthy);
-      };
+      interface Student {
+        id: string;
+        // Add other properties if needed
+      }
 
       const handleBulkSend = async () => {
         if (!bulkMessage.title || !bulkMessage.message) {
@@ -103,8 +114,8 @@
 
         try {
           // Get student IDs based on audience
-          const students = await databaseService.getStudents();
-          const studentIds = students.map((s: any) => s.id);
+          const students: Student[] = await databaseService.getStudents();
+          const studentIds = students.map((s: Student) => s.id);
           
           await sendBulkNotification(
             studentIds,
@@ -345,7 +356,7 @@
                     <label className="block text-sm font-medium text-gray-700 mb-2">Priority</label>
                     <select
                       value={bulkMessage.priority}
-                      onChange={(e) => setBulkMessage({ ...bulkMessage, priority: e.target.value as any })}
+                      onChange={(e) => setBulkMessage({ ...bulkMessage, priority: e.target.value as 'low' | 'medium' | 'high' })}
                       className="input"
                     >
                       <option value="low">Low Priority</option>

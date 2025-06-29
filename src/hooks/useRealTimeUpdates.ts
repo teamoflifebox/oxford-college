@@ -50,48 +50,60 @@ export const useRealTimeUpdates = () => {
     setIsConnected(true);
 
     // ✅ Event Handlers
-    const handleAttendanceUpdate = (data: AttendanceData) => {
-      setLastUpdate({ type: 'attendance_update', data, timestamp: new Date() });
+    const handleAttendanceUpdate = (data: unknown) => {
+      if (typeof data === 'object' && data !== null && 'studentName' in data && 'isPresent' in data) {
+        const attendanceData = data as AttendanceData;
+        setLastUpdate({ type: 'attendance_update', data: attendanceData, timestamp: new Date() });
 
-      if ('Notification' in window && Notification.permission === 'granted') {
-        new Notification('Attendance Updated', {
-          body: `${data.studentName} marked ${data.isPresent ? 'present' : 'absent'}`,
-          icon: '/favicon.ico',
-        });
+        if ('Notification' in window && Notification.permission === 'granted') {
+          new Notification('Attendance Updated', {
+            body: `${attendanceData.studentName} marked ${attendanceData.isPresent ? 'present' : 'absent'}`,
+            icon: '/favicon.ico',
+          });
+        }
       }
     };
 
-    const handleFeePayment = (data: FeePaymentData) => {
-      setLastUpdate({ type: 'fee_payment', data, timestamp: new Date() });
+    const handleFeePayment = (data: unknown) => {
+      if (typeof data === 'object' && data !== null && 'amount' in data) {
+        const feePaymentData = data as FeePaymentData;
+        setLastUpdate({ type: 'fee_payment', data: feePaymentData, timestamp: new Date() });
 
-      if ('Notification' in window && Notification.permission === 'granted') {
-        new Notification('Fee Payment Received', {
-          body: `Payment of ₹${data.amount} received`,
-          icon: '/favicon.ico',
-        });
+        if ('Notification' in window && Notification.permission === 'granted') {
+          new Notification('Fee Payment Received', {
+            body: `Payment of ₹${feePaymentData.amount} received`,
+            icon: '/favicon.ico',
+          });
+        }
       }
     };
 
-    const handleMarksUpdate = (data: MarksData) => {
-      setLastUpdate({ type: 'marks_update', data, timestamp: new Date() });
+    const handleMarksUpdate = (data: unknown) => {
+      if (typeof data === 'object' && data !== null && 'subject' in data && 'marks' in data) {
+        const marksData = data as MarksData;
+        setLastUpdate({ type: 'marks_update', data: marksData, timestamp: new Date() });
 
-      if ('Notification' in window && Notification.permission === 'granted') {
-        new Notification('Marks Updated', {
-          body: `New marks published for ${data.subject}`,
-          icon: '/favicon.ico',
-        });
+        if ('Notification' in window && Notification.permission === 'granted') {
+          new Notification('Marks Updated', {
+            body: `New marks published for ${marksData.subject}`,
+            icon: '/favicon.ico',
+          });
+        }
       }
     };
 
-    const handleEmergency = (data: EmergencyData) => {
-      setLastUpdate({ type: 'emergency', data, timestamp: new Date() });
+    const handleEmergency = (data: unknown) => {
+      if (typeof data === 'object' && data !== null && 'message' in data) {
+        const emergencyData = data as EmergencyData;
+        setLastUpdate({ type: 'emergency', data: emergencyData, timestamp: new Date() });
 
-      if ('Notification' in window && Notification.permission === 'granted') {
-        new Notification('🚨 Emergency Alert', {
-          body: data.message,
-          icon: '/favicon.ico',
-          requireInteraction: true,
-        });
+        if ('Notification' in window && Notification.permission === 'granted') {
+          new Notification('🚨 Emergency Alert', {
+            body: emergencyData.message,
+            icon: '/favicon.ico',
+            requireInteraction: true,
+          });
+        }
       }
     };
 

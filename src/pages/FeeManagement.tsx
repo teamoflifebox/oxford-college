@@ -6,7 +6,6 @@ import { useWhatsAppNotifications } from '../hooks/useWhatsAppNotifications';
 import { 
   CreditCard, 
   DollarSign, 
-  Calendar, 
   CheckCircle, 
   AlertCircle, 
   Clock,

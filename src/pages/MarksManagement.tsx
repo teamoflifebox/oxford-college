@@ -4,7 +4,6 @@ import { useAuth } from '../context/AuthContext';
 import Layout from '../components/Layout/Layout';
 import { useWhatsAppNotifications } from '../hooks/useWhatsAppNotifications';
 import { 
-  BookOpen, 
   Upload, 
   Download, 
   Edit, 
@@ -16,7 +15,7 @@ import {
   MessageCircle,
   Phone
 } from 'lucide-react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line } from 'recharts';
+import { XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line } from 'recharts';
 
 const MarksManagement: React.FC = () => {
   const { user } = useAuth();
@@ -27,7 +26,6 @@ const MarksManagement: React.FC = () => {
   const [autoNotify, setAutoNotify] = useState(true);
 
   const isStudent = user?.role === 'student';
-  const isFaculty = user?.role === 'faculty';
 
   // Mock data for student marks view
   const studentMarksData = [

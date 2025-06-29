@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { GraduationCap, Mail, Lock, User, ArrowLeft, Code, Brain, Hash, Briefcase, Sparkles } from 'lucide-react';
+import { GraduationCap, Lock, User, ArrowLeft, Code, Brain, Hash, Briefcase, Sparkles } from 'lucide-react';
 
 const LoginPage: React.FC = () => {
   const navigate = useNavigate();
