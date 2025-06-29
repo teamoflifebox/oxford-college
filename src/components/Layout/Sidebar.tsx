@@ -179,7 +179,7 @@ import {
 import { useAuth } from '../../context/AuthContext';
 
 interface SidebarProps {
-  /** Drawer visible on mobile (< md). Always visible on ≥ md */
+  /** Drawer visible on mobile (<md). Always visible on >=md */
   isOpen?: boolean;
   /** Callback to close the drawer */
   onClose?: () => void;
@@ -335,7 +335,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen = false, onClose }) => {
             <div className="mt-3 w-full bg-neutral-200 rounded-full h-1.5">
               <div className="bg-gradient-primary h-1.5 rounded-full w-3/4 animate-pulse-gentle" />
             </div>
-            <p className="text-xs text-neutral-500 mt-1">System Status: Optimal</p>
+            <p className="text-xs text-neutral-500 mt-1">System Status: Optimal</p>
           </div>
         </div>
       </aside>
