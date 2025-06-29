@@ -64,7 +64,7 @@ const StudentManagement: React.FC = () => {
       id: '3',
       name: 'Santhosh',
       email: 'santhosh@oxford.edu',
-      phone: '+91 9876543212',
+      phone: '+91 7671988410',
       department: 'Computer Science Engineering',
       year: '1st Year',
       rollNumber: 'CS2023003',

@@ -37,7 +37,7 @@ class WhatsAppService {
       studentName: 'Sai',
       rollNumber: 'AI2023002',
       parentName: 'Mr. Sai Father',
-      parentPhone: '+91 9876543212',
+      parentPhone: '+91 7671988410',
       emergencyContact: '+91 9876543213'
     },
     {

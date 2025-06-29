@@ -42,7 +42,7 @@ const mockUsers: User[] = [
     role: 'student',
     department: 'Computer Science Engineering',
     avatar: 'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
-    phone: '+91 9876543212',
+    phone: '+91 7671988410',
     joinDate: '2023-09-01',
     rollNumber: 'CS2023003'
   },
