@@ -492,17 +492,6 @@ const LoginPage: React.FC = () => {
             </form>
           </div>
         </motion.div>
-        <div className="text-center text-sm text-neutral-600 mt-4">
-  Don’t have an account?{' '}
-  <button
-    type="button"
-    onClick={() => navigate('/register')}
-    className="text-primary-600 hover:underline font-medium"
-  >
-    Register
-  </button>
-</div>
-
 
         <footer className="mt-4 text-center text-xs text-neutral-600">
           <div className="flex items-center justify-center gap-2 mb-1">

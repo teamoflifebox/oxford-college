@@ -256,10 +256,6 @@ import {
   Hash,
   Briefcase,
   Sparkles,
-  Eye,
-  EyeOff,
-  ShieldCheck,
-  LogIn,
 } from 'lucide-react';
 
 const LoginPage: React.FC = () => {
@@ -271,29 +267,24 @@ const LoginPage: React.FC = () => {
     password: '',
     role: 'student',
   });
-
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
     setError('');
 
-    try {
-      const success = await login(
-        formData.identifier,
-        formData.password,
-        formData.role
-      );
-      if (success) {
-        navigate('/dashboard');
-      } else {
-        setError('Invalid credentials.');
-      }
-    } catch (err) {
-      setError('Something went wrong. Please try again.');
+    const success = login(
+      formData.identifier,
+      formData.password,
+      formData.role
+    );
+
+    if (success) {
+      navigate('/dashboard');
+    } else {
+      setError('Invalid credentials.');
     }
 
     setIsLoading(false);
@@ -307,18 +298,6 @@ const LoginPage: React.FC = () => {
   const getIdentifierIcon = () =>
     formData.role === 'student' ? Hash : Briefcase;
 
-  const handleGoogleLogin = () => {
-    alert('Google login not yet connected.');
-  };
-
-  const handleOtpLogin = () => {
-    navigate('/otp-login');
-  };
-
-  const handleForgotPassword = () => {
-    navigate('/forgot-password');
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-neutral-50 via-primary-50/30 to-accent-50/20 flex items-center justify-center p-4 relative overflow-hidden">
       {/* Background Decorations */}
@@ -331,43 +310,48 @@ const LoginPage: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="card relative overflow-hidden max-h-[620px] overflow-y-auto rounded-2xl shadow-lg"
+          className="card relative overflow-hidden"
         >
+          {/* Card Background Pattern */}
           <div className="absolute inset-0 bg-gradient-to-br from-white/90 to-white/70" />
+          <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-primary-100/30 to-accent-100/30 rounded-full -translate-y-10 translate-x-10" />
+          <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-success-100/40 to-warning-100/40 rounded-full translate-y-8 -translate-x-8" />
 
-          <div className="relative z-10 px-6 py-6 space-y-5">
+          <div className="relative z-10 p-8">
             {/* Header */}
-            <div className="text-center mb-2 space-y-2">
+            <div className="text-center mb-8">
               <button
                 onClick={() => navigate('/')}
-                className="inline-flex items-center gap-2 text-neutral-600 hover:text-primary-600 transition-colors text-sm group"
+                className="inline-flex items-center gap-2 text-neutral-600 hover:text-primary-600 transition-colors mb-6 group"
               >
                 <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
                 <span>Back to Home</span>
               </button>
 
-              <div className="flex items-center justify-center">
+              <div className="flex items-center justify-center mb-6">
                 <div className="relative">
-                  <div className="bg-gradient-primary p-3 rounded-xl shadow-glow">
-                    <GraduationCap className="w-7 h-7 text-white animate-float" />
+                  <div className="bg-gradient-primary p-4 rounded-2xl shadow-glow">
+                    <GraduationCap className="w-8 h-8 text-white animate-float" />
                   </div>
-                  <Sparkles className="absolute -top-1 -right-1 w-3 h-3 text-accent-500 animate-bounce-gentle" />
+                  <Sparkles className="absolute -top-1 -right-1 w-4 h-4 text-accent-500 animate-bounce-gentle" />
                 </div>
               </div>
 
-              <h1 className="text-2xl font-bold text-gradient-hero">Oxford ERP</h1>
-              <p className="text-sm text-neutral-600">Technology Education Portal</p>
-              <div className="flex items-center justify-center gap-2 text-xs text-neutral-500">
+              <h1 className="text-3xl font-bold text-gradient-hero mb-2">
+                Oxford ERP
+              </h1>
+              <p className="text-neutral-600 mb-2">Technology Education Portal</p>
+              <div className="flex items-center justify-center gap-2">
                 <Code className="w-4 h-4 text-primary-500" />
-                <span>AI & Tech Learning</span>
+                <span className="text-xs text-neutral-500">AI & Tech Learning</span>
                 <Brain className="w-4 h-4 text-accent-500" />
               </div>
             </div>
 
             {/* Form */}
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label className="flex items-center gap-2 text-sm font-medium text-neutral-700 mb-2">
+                <label className="flex items-center gap-2 text-sm font-medium text-neutral-700 mb-3">
                   <User className="w-4 h-4" />
                   <span>Role</span>
                 </label>
@@ -390,9 +374,11 @@ const LoginPage: React.FC = () => {
               </div>
 
               <div>
-                <label className="flex items-center gap-2 text-sm font-medium text-neutral-700 mb-2">
+                <label className="flex items-center gap-2 text-sm font-medium text-neutral-700 mb-3">
                   {React.createElement(getIdentifierIcon(), { className: 'w-4 h-4' })}
-                  <span>{formData.role === 'student' ? 'Roll Number' : 'Job ID'}</span>
+                  <span>
+                    {formData.role === 'student' ? 'Roll Number' : 'Job ID'}
+                  </span>
                 </label>
                 <input
                   type="text"
@@ -407,46 +393,27 @@ const LoginPage: React.FC = () => {
               </div>
 
               <div>
-                <label className="flex items-center gap-2 text-sm font-medium text-neutral-700 mb-2">
+                <label className="flex items-center gap-2 text-sm font-medium text-neutral-700 mb-3">
                   <Lock className="w-4 h-4" />
                   <span>Password</span>
                 </label>
-                <div className="relative">
-                  <input
-                    type={showPassword ? 'text' : 'password'}
-                    value={formData.password}
-                    onChange={(e) =>
-                      setFormData({ ...formData, password: e.target.value })
-                    }
-                    className="input pr-10"
-                    placeholder="Enter your password"
-                    required
-                  />
-                  <button
-                    type="button"
-                    onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-500 hover:text-primary-600"
-                  >
-                    {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
-                  </button>
-                </div>
-              </div>
-
-              <div className="text-right">
-                <button
-                  type="button"
-                  onClick={handleForgotPassword}
-                  className="text-xs text-primary-600 hover:underline"
-                >
-                  Forgot password?
-                </button>
+                <input
+                  type="password"
+                  value={formData.password}
+                  onChange={(e) =>
+                    setFormData({ ...formData, password: e.target.value })
+                  }
+                  className="input"
+                  placeholder="Enter your password"
+                  required
+                />
               </div>
 
               {error && (
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="notification-error flex items-center gap-2 text-sm text-error-600 mt-1"
+                  className="notification-error"
                 >
                   <div className="w-5 h-5 bg-error-500 rounded-full flex items-center justify-center">
                     <span className="text-white text-xs">!</span>
@@ -469,54 +436,34 @@ const LoginPage: React.FC = () => {
                   'Sign In to ERP'
                 )}
               </button>
-
-              <div className="text-center text-neutral-400 text-sm">OR</div>
-
-              <button
-                type="button"
-                onClick={handleOtpLogin}
-                className="w-full flex items-center justify-center gap-2 border border-primary-300 text-primary-700 hover:bg-primary-50 rounded-lg px-3 py-2 transition-all text-sm"
-              >
-                <ShieldCheck className="w-4 h-4" />
-                <span>Login via OTP</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={handleGoogleLogin}
-                className="w-full flex items-center justify-center gap-2 border border-red-300 text-red-700 hover:bg-red-50 rounded-lg px-3 py-2 transition-all text-sm"
-              >
-                <LogIn className="w-4 h-4" />
-                <span>Sign in with Google</span>
-              </button>
             </form>
           </div>
         </motion.div>
-        <div className="text-center text-sm text-neutral-600 mt-4">
-  Don’t have an account?{' '}
-  <button
-    type="button"
-    onClick={() => navigate('/register')}
-    className="text-primary-600 hover:underline font-medium"
-  >
-    Register
-  </button>
-</div>
 
-
-        <footer className="mt-4 text-center text-xs text-neutral-600">
-          <div className="flex items-center justify-center gap-2 mb-1">
+        {/* Footer */}
+        <footer className="mt-8 text-center text-sm text-neutral-600">
+          <div className="flex items-center justify-center gap-2 mb-3">
             <GraduationCap className="w-4 h-4 text-primary-500" />
             <p>
-              Powered by <strong className="text-gradient">Lifebox NextGen Pvt Ltd</strong>
+              Powered by{' '}
+              <strong className="text-gradient">Lifebox NextGen Pvt Ltd</strong>
             </p>
           </div>
-          <div className="flex justify-center gap-3">
-            <a href="#" className="hover:text-primary-600 transition-colors">Privacy Policy</a>
+          <div className="flex justify-center gap-4">
+            <a
+              href="#"
+              className="hover:text-primary-600 transition-colors"
+            >
+              Privacy Policy
+            </a>
             <span className="text-neutral-400">•</span>
-            <a href="#" className="hover:text-primary-600 transition-colors">Terms</a>
+            <a href="#" className="hover:text-primary-600 transition-colors">
+              Terms
+            </a>
             <span className="text-neutral-400">•</span>
-            <a href="#" className="hover:text-primary-600 transition-colors">Contact</a>
+            <a href="#" className="hover:text-primary-600 transition-colors">
+              Contact
+            </a>
           </div>
         </footer>
       </div>
