@@ -186,7 +186,7 @@ const Navbar: React.FC = () => {
           </div>
 
           <div className="hidden sm:block">
-            <h1 className="text-xl font-bold text-gradient">Oxford ERP</h1>
+            <h1 className="text-xl font-bold text-gradient">Oxford College</h1>
             <p className="text-xs text-neutral-500 -mt-1">
               Technology Excellence
             </p>

@@ -179,7 +179,7 @@ const Navbar: React.FC = () => {
             <div className="absolute -top-1 -right-1 w-3 h-3 bg-accent-500 rounded-full animate-pulse-gentle"></div>
           </div>
           <div className="hidden sm:block">
-            <h1 className="text-xl font-bold text-gradient">Oxford ERP</h1>
+            <h1 className="text-xl font-bold text-gradient">Oxford College</h1>
             <p className="text-xs text-neutral-500 -mt-1">Technology Excellence</p>
           </div>
           <div className="hidden md:block ml-2">
