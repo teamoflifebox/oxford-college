@@ -226,12 +226,12 @@ const Navbar: React.FC = () => {
             <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-accent-500 rounded-full animate-bounce-gentle" />
           </button>
 
-          {/* Settings (≥ sm) */}
+          {/* Settings (>= sm) */}
           <button className="hidden sm:flex p-2.5 text-neutral-600 hover:text-primary-600 hover:bg-primary-50 rounded-xl transition">
             <Settings className="w-5 h-5" />
           </button>
 
-          {/* Profile (≥ sm) */}
+          {/* Profile (>= sm) */}
           <div className="hidden sm:flex items-center gap-2 border-l border-neutral-200 pl-3">
             <img
               src={

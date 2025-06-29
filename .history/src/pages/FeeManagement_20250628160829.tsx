@@ -79,7 +79,7 @@ const FeeManagement: React.FC = () => {
       pendingAmount: 8000, 
       status: 'overdue',
       lastPayment: '2023-08-15',
-      parentPhone: '9133843912'
+      parentPhone: '9392296055'
     },
     { 
       id: '4', 

@@ -25,14 +25,12 @@ import {
   GraduationCap, 
   Award, 
   Calendar,
-  Filter,
   Download
 } from 'lucide-react';
 
 const AnalyticsPage: React.FC = () => {
   const { user } = useAuth();
   const [selectedPeriod, setSelectedPeriod] = useState('semester');
-  const [selectedDepartment, setSelectedDepartment] = useState('all');
 
   const canViewAnalytics = ['hod', 'principal', 'director'].includes(user?.role || '');
 

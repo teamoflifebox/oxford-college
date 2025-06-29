@@ -10,7 +10,6 @@ import {
   Trash2, 
   Mail, 
   Phone, 
-  User,
   GraduationCap,
   Calendar,
   Award,

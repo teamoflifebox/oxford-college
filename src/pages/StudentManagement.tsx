@@ -10,10 +10,8 @@ import {
   Trash2, 
   Mail, 
   Phone, 
-  User,
   GraduationCap,
   Calendar,
-  MapPin,
   Hash
 } from 'lucide-react';
 

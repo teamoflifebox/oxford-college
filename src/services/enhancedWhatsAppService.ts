@@ -14,7 +14,15 @@ export interface WhatsAppMessage {
     language: {
       code: string;
     };
-    components: any[];
+    components: Array<{
+      type: string;
+      parameters?: Array<{
+        type: string;
+        text?: string;
+        image?: { link: string };
+        document?: { link: string };
+      }>;
+    }>;
   };
 }
 
@@ -239,7 +247,7 @@ class EnhancedWhatsAppService {
         // Add delay to avoid rate limiting
         await new Promise(resolve => setTimeout(resolve, 1000));
       } catch (error) {
-        results.push({ studentId, status: 'failed', error: error.message });
+        results.push({ studentId, status: 'failed', error: error instanceof Error ? error.message : String(error) });
       }
     }
     
@@ -247,10 +255,23 @@ class EnhancedWhatsAppService {
   }
 
   // Webhook handler for delivery status
-  async handleWebhook(webhookData: any) {
+  async handleWebhook(webhookData: unknown) {
     try {
-      if (webhookData.entry) {
-        for (const entry of webhookData.entry) {
+      if (
+        typeof webhookData === 'object' &&
+        webhookData !== null &&
+        'entry' in webhookData &&
+        Array.isArray((webhookData as { entry?: unknown }).entry)
+      ) {
+        interface WebhookEntry {
+          changes?: Array<{
+            value: {
+              statuses?: Array<{ id: string; status: string }>;
+            };
+          }>;
+        }
+        const entries = (webhookData as { entry: WebhookEntry[] }).entry;
+        for (const entry of entries) {
           if (entry.changes) {
             for (const change of entry.changes) {
               if (change.value.statuses) {

@@ -5,7 +5,6 @@ import Layout from '../components/Layout/Layout';
 import { 
   Bell, 
   Send, 
-  Users, 
   MessageSquare, 
   AlertCircle, 
   CheckCircle, 
@@ -29,12 +28,26 @@ const NotificationsPage: React.FC = () => {
 
   const canSendNotifications = ['hod', 'principal', 'director'].includes(user?.role || '');
 
-  const mockNotifications = [
+  type NotificationType = 'info' | 'warning' | 'success' | 'error';
+
+  interface Notification {
+    id: string;
+    title: string;
+    message: string;
+    type: NotificationType;
+    date: string;
+    time: string;
+    read: boolean;
+    sender: string;
+    audience: string;
+  }
+
+  const mockNotifications: Notification[] = [
     {
       id: '1',
       title: 'Fee Payment Reminder',
       message: 'Your quarterly fee payment is due by the end of this month. Please make the payment to avoid late fees.',
-      type: 'warning' as const,
+      type: 'warning',
       date: '2024-01-15',
       time: '10:30 AM',
       read: false,
@@ -45,7 +58,7 @@ const NotificationsPage: React.FC = () => {
       id: '2',
       title: 'New Course Materials Available',
       message: 'New study materials for Data Structures and Algorithms have been uploaded to the portal.',
-      type: 'info' as const,
+      type: 'info',
       date: '2024-01-14',
       time: '2:15 PM',
       read: true,
@@ -56,7 +69,7 @@ const NotificationsPage: React.FC = () => {
       id: '3',
       title: 'Exam Schedule Released',
       message: 'Mid-semester examination schedule has been released. Check the academic calendar for details.',
-      type: 'success' as const,
+      type: 'success',
       date: '2024-01-12',
       time: '9:00 AM',
       read: true,
@@ -67,7 +80,7 @@ const NotificationsPage: React.FC = () => {
       id: '4',
       title: 'Library Maintenance',
       message: 'The library will be closed for maintenance on January 20th. Plan your study schedule accordingly.',
-      type: 'warning' as const,
+      type: 'warning',
       date: '2024-01-10',
       time: '4:45 PM',
       read: false,
@@ -78,7 +91,7 @@ const NotificationsPage: React.FC = () => {
       id: '5',
       title: 'Faculty Meeting Scheduled',
       message: 'Department faculty meeting scheduled for January 25th at 3:00 PM in Conference Room A.',
-      type: 'info' as const,
+      type: 'info',
       date: '2024-01-08',
       time: '11:20 AM',
       read: true,
@@ -89,7 +102,7 @@ const NotificationsPage: React.FC = () => {
       id: '6',
       title: 'System Maintenance Complete',
       message: 'The ERP system maintenance has been completed successfully. All services are now operational.',
-      type: 'success' as const,
+      type: 'success',
       date: '2024-01-05',
       time: '8:00 AM',
       read: true,
@@ -202,7 +215,7 @@ const NotificationsPage: React.FC = () => {
               <div>
                 <p className="text-sm font-medium text-gray-600">Important</p>
                 <p className="text-3xl font-bold text-yellow-600">
-                  {mockNotifications.filter(n => n.type === 'warning' || n.type === 'error').length}
+                  {mockNotifications.filter(n => (n.type === 'warning' || n.type === 'error')).length}
                 </p>
               </div>
               <div className="bg-yellow-100 p-3 rounded-xl">
@@ -395,7 +408,7 @@ const NotificationsPage: React.FC = () => {
                     </label>
                     <select
                       value={newNotification.type}
-                      onChange={(e) => setNewNotification({ ...newNotification, type: e.target.value as any })}
+                      onChange={(e) => setNewNotification({ ...newNotification, type: e.target.value as 'info' | 'warning' | 'success' | 'error' })}
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                     >
                       <option value="info">Information</option>

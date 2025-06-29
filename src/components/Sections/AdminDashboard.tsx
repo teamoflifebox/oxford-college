@@ -62,7 +62,7 @@ const AdminDashboard: React.FC = () => {
           title="Innovation Rate"
           value="98.5%"
           icon={TrendingUp}
-          color="sage"
+          color="success"
           trend={{ value: 2.3, isPositive: true }}
           subtitle="Tech advancement"
         />

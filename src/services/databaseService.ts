@@ -205,7 +205,10 @@ class DatabaseService {
   }
 
   // Analytics
-  async getAnalytics(type: 'attendance' | 'marks' | 'fees' | 'overview', filters?: any) {
+  async getAnalytics(
+    type: 'attendance' | 'marks' | 'fees' | 'overview',
+    filters?: { [key: string]: string | number | undefined }
+  ) {
     const response = await apiClient.get(`/analytics/${type}`, { params: filters });
     return response.data;
   }

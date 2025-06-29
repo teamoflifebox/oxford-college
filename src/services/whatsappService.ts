@@ -6,7 +6,7 @@ export interface WhatsAppNotification {
   message: string;
   timestamp: Date;
   status: 'pending' | 'sent' | 'delivered' | 'failed';
-  metadata?: any;
+  metadata?: Record<string, unknown>;
 }
 
 export interface StudentParentInfo {
@@ -19,7 +19,7 @@ export interface StudentParentInfo {
 }
 
 class WhatsAppService {
-  private apiUrl = 'https://api.whatsapp.com/send'; // This would be your WhatsApp Business API endpoint
+  // private apiUrl = 'https://api.whatsapp.com/send'; // This would be your WhatsApp Business API endpoint
   private notifications: WhatsAppNotification[] = [];
 
   // Updated parent data with actual student names
@@ -188,7 +188,7 @@ class WhatsAppService {
   }
 
   // Core notification sending method
-  private async sendNotification(studentId: string, phone: string, type: WhatsAppNotification['type'], message: string, metadata?: any): Promise<WhatsAppNotification> {
+  private async sendNotification(studentId: string, phone: string, type: WhatsAppNotification['type'], message: string, metadata?: Record<string, unknown>): Promise<WhatsAppNotification> {
     const notification: WhatsAppNotification = {
       id: this.generateId(),
       studentId,
@@ -220,31 +220,34 @@ class WhatsAppService {
     }
   }
 
-  // Simulate WhatsApp API call
-  private async simulateWhatsAppAPI(phone: string, message: string): Promise<void> {
-    // Simulate API delay
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    // Simulate occasional failures (5% failure rate)
-    if (Math.random() < 0.05) {
-      throw new Error('WhatsApp API error');
-    }
-    
-    // In real implementation, this would be:
-    // const response = await fetch(this.apiUrl, {
-    //   method: 'POST',
-    //   headers: {
-    //     'Authorization': `Bearer ${process.env.WHATSAPP_API_TOKEN}`,
-    //     'Content-Type': 'application/json'
-    //   },
-    //   body: JSON.stringify({
-    //     messaging_product: 'whatsapp',
-    //     to: phone,
-    //     type: 'text',
-    //     text: { body: message }
-    //   })
-    // });
-  }
+    // Simulate WhatsApp API call
+      private async simulateWhatsAppAPI(phone: string, message: string): Promise<void> {
+        // Simulate API delay
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        
+        // Simulate occasional failures (5% failure rate)
+        if (Math.random() < 0.05) {
+          throw new Error('WhatsApp API error');
+        }
+        
+        // In real implementation, this would be:
+        // const response = await fetch(this.apiUrl, {
+        //   method: 'POST',
+        //   headers: {
+        //     'Authorization': `Bearer ${process.env.WHATSAPP_API_TOKEN}`,
+  //     'Content-Type': 'application/json'
+  //   },
+  //   body: JSON.stringify({
+  //     messaging_product: 'whatsapp',
+  //     to: phone,
+  //     type: 'text',
+  //     text: { body: message }
+  //   })
+  // });
+        // This is just to use the parameters and avoid unused variable errors
+        void phone;
+        void message;
+      }
 
   // Get parent information
   private getParentInfo(studentId: string): StudentParentInfo | null {
@@ -295,7 +298,7 @@ class WhatsAppService {
     studentId: string;
     type: WhatsAppNotification['type'];
     message: string;
-    metadata?: any;
+    metadata?: Record<string, unknown>;
   }>) {
     const results = await Promise.allSettled(
       notifications.map(async (notif) => {
