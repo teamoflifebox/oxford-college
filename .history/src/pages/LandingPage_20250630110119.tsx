@@ -22,7 +22,7 @@ import {
   Database
 } from 'lucide-react';
 import Announcements from './Announcements';
-import DownloadButton from '../components/DownloadButton';
+
 const LandingPage: React.FC = () => {
   const navigate = useNavigate();
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -149,20 +149,18 @@ const LandingPage: React.FC = () => {
               <a href="#careers" className="text-sage-600 hover:text-primary-600 transition-colors">Careers</a>
               <a href="#gallery" className="text-sage-600 hover:text-primary-600 transition-colors">Campus Gallery</a>
             </div>
-            <div className="flex items-center space-x-4">
-                <DownloadButton
-                   fileLink="/files/Oxford_Brochure_Placeholder.pdf"   // ⬅️ update path to your PDF
-                   label="Prospectus"
-                   countdown={5}                            // seconds before download starts
-                    className="btn-secondary"
-                    forceDownload={true}
-                />
 
-                <button onClick={() => navigate('/login')} className="btn-primary">
+            {/* CTA Buttons */}
+            <div className="flex items-center space-x-4">
+              <button className="btn-secondary">
+                <Download className="w-4 h-4" />
+                <span>Prospectus</span>
+              </button>
+              <button onClick={() => navigate('/login')} className="btn-primary">
                 <LogIn className="w-4 h-4" />
-                  <span>Login</span>
-                 </button>
-               </div>
+                <span>Login</span>
+              </button>
+            </div>
           </div>
         </div>
       </motion.nav>
@@ -200,15 +198,10 @@ const LandingPage: React.FC = () => {
                   <LogIn className="w-5 h-5 group-hover:scale-110 transition-transform" />
                   <span>Access ERP Portal</span>
                 </button>
-               
-                  <DownloadButton
-                   fileLink="/files/Oxford_Brochure_Placeholder.pdf"   // ⬅️ update path to your PDF
-                   label="Download Prospectus"
-                   countdown={5}                            // seconds before download starts
-                    className="btn-secondary"
-                    forceDownload={true}
-                />
-          
+                <button className="btn-secondary group">
+                  <Download className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                  <span>Download Prospectus</span>
+                </button>
               </div>
             </motion.div>
             <motion.div

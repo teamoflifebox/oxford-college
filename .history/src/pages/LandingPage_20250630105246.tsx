@@ -12,7 +12,6 @@ import {
   Mail,
   ChevronLeft,
   ChevronRight,
-  ChevronDown,
   Star,
   TrendingUp,
   Download,
@@ -22,7 +21,7 @@ import {
   Database
 } from 'lucide-react';
 import Announcements from './Announcements';
-import DownloadButton from '../components/DownloadButton';
+
 const LandingPage: React.FC = () => {
   const navigate = useNavigate();
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -114,58 +113,65 @@ const LandingPage: React.FC = () => {
         </div>
       </motion.nav> */}
       <motion.nav
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        className="fixed top-0 w-full bg-white/95 backdrop-blur-md border-b border-primary-100 z-50"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            {/* Logo & Title */}
-            <div className="flex items-center space-x-3">
-              <div className="bg-gradient-forest p-2 rounded-xl shadow-nature">
-                <GraduationCap className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <span className="text-xl font-bold text-gradient">Oxford College</span>
-                <p className="text-xs text-sage-600 -mt-1">Technology Excellence</p>
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      className="fixed top-0 w-full bg-white/95 backdrop-blur-md border-b border-primary-100 z-50"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          {/* logo + title */}
+          <div className="flex items-center space-x-3">
+            <div className="bg-gradient-forest p-2 rounded-xl shadow-nature">
+              <GraduationCap className="w-6 h-6 text-white" />
+            </div>
+            <div>
+              <span className="text-xl font-bold text-gradient">Oxford College</span>
+              <p className="text-xs text-sage-600 -mt-1">Technology Excellence</p>
+            </div>
+          </div>
+
+          {/* desktop links */}
+          <div className="hidden md:flex items-center space-x-8">
+            {/* Programs dropdown */}
+            <div className="relative group">
+              <button className="flex items-center gap-1 text-sage-600 hover:text-primary-600 transition-colors">
+                Programs
+                <ChevronDown className="w-4 h-4" />
+              </button>
+
+              {/* dropdown menu */}
+              <div className="absolute left-0 mt-2 w-40 bg-white rounded-lg shadow-lg hidden group-hover:block z-50">
+                <a href="#ug" className="block px-4 py-2 hover:bg-gray-100">UG</a>
+                <a href="#pg" className="block px-4 py-2 hover:bg-gray-100">PG</a>
+                <a href="#certification" className="block px-4 py-2 hover:bg-gray-100">Certification</a>
               </div>
             </div>
 
-            {/* Desktop Nav */}
-            <div className="hidden md:flex items-center space-x-8">
-              {/* Programs dropdown */}
-              <div className="relative group">
-                <button className="flex items-center gap-1 text-sage-600 hover:text-primary-600 transition-colors">
-                  Programs
-                  <ChevronDown className="w-4 h-4" />
-                </button>
-                <div className="absolute left-0 mt-2 w-40 bg-white rounded-lg shadow-lg hidden group-hover:block z-50">
-                  <a href="#ug" className="block px-4 py-2 hover:bg-gray-100">UG</a>
-                  <a href="#pg" className="block px-4 py-2 hover:bg-gray-100">PG</a>
-                  <a href="#certification" className="block px-4 py-2 hover:bg-gray-100">Certification</a>
-                </div>
-              </div>
-              <a href="#lab" className="text-sage-600 hover:text-primary-600 transition-colors">Innovation Lab</a>
-              <a href="#careers" className="text-sage-600 hover:text-primary-600 transition-colors">Careers</a>
-              <a href="#gallery" className="text-sage-600 hover:text-primary-600 transition-colors">Campus Gallery</a>
-            </div>
-            <div className="flex items-center space-x-4">
-                <DownloadButton
-                   fileLink="/files/Oxford_Brochure_Placeholder.pdf"   // ⬅️ update path to your PDF
-                   label="Prospectus"
-                   countdown={5}                            // seconds before download starts
-                    className="btn-secondary"
-                    forceDownload={true}
-                />
+            <a href="#lab" className="text-sage-600 hover:text-primary-600 transition-colors">
+              Innovation Lab
+            </a>
+            <a href="#careers" className="text-sage-600 hover:text-primary-600 transition-colors">
+              Careers
+            </a>
+            <a href="#gallery" className="text-sage-600 hover:text-primary-600 transition-colors">
+              Campus Gallery
+            </a>
+          </div>
 
-                <button onClick={() => navigate('/login')} className="btn-primary">
-                <LogIn className="w-4 h-4" />
-                  <span>Login</span>
-                 </button>
-               </div>
+          {/* CTA buttons */}
+          <div className="flex items-center space-x-4">
+            <button className="btn-secondary">
+              <Download className="w-4 h-4" />
+              <span>Prospectus</span>
+            </button>
+            <button onClick={() => navigate('/login')} className="btn-primary">
+              <LogIn className="w-4 h-4" />
+              <span>Login</span>
+            </button>
           </div>
         </div>
-      </motion.nav>
+      </div>
+    </motion.nav>
       
       {/* Hero Section */}
       <section className="pt-16 relative overflow-hidden">
@@ -200,15 +206,10 @@ const LandingPage: React.FC = () => {
                   <LogIn className="w-5 h-5 group-hover:scale-110 transition-transform" />
                   <span>Access ERP Portal</span>
                 </button>
-               
-                  <DownloadButton
-                   fileLink="/files/Oxford_Brochure_Placeholder.pdf"   // ⬅️ update path to your PDF
-                   label="Download Prospectus"
-                   countdown={5}                            // seconds before download starts
-                    className="btn-secondary"
-                    forceDownload={true}
-                />
-          
+                <button className="btn-secondary group">
+                  <Download className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                  <span>Download Prospectus</span>
+                </button>
               </div>
             </motion.div>
             <motion.div

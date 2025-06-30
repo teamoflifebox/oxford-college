@@ -155,7 +155,6 @@ const LandingPage: React.FC = () => {
                    label="Prospectus"
                    countdown={5}                            // seconds before download starts
                     className="btn-secondary"
-                    forceDownload={true}
                 />
 
                 <button onClick={() => navigate('/login')} className="btn-primary">
@@ -206,7 +205,6 @@ const LandingPage: React.FC = () => {
                    label="Download Prospectus"
                    countdown={5}                            // seconds before download starts
                     className="btn-secondary"
-                    forceDownload={true}
                 />
           
               </div>

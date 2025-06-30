@@ -151,11 +151,10 @@ const LandingPage: React.FC = () => {
             </div>
             <div className="flex items-center space-x-4">
                 <DownloadButton
-                   fileLink="/files/Oxford_Brochure_Placeholder.pdf"   // ⬅️ update path to your PDF
+                   fileLink="/files/payment-receipt.pdf"   // ⬅️ update path to your PDF
                    label="Prospectus"
                    countdown={5}                            // seconds before download starts
                     className="btn-secondary"
-                    forceDownload={true}
                 />
 
                 <button onClick={() => navigate('/login')} className="btn-primary">
@@ -200,15 +199,10 @@ const LandingPage: React.FC = () => {
                   <LogIn className="w-5 h-5 group-hover:scale-110 transition-transform" />
                   <span>Access ERP Portal</span>
                 </button>
-               
-                  <DownloadButton
-                   fileLink="/files/Oxford_Brochure_Placeholder.pdf"   // ⬅️ update path to your PDF
-                   label="Download Prospectus"
-                   countdown={5}                            // seconds before download starts
-                    className="btn-secondary"
-                    forceDownload={true}
-                />
-          
+                <button className="btn-secondary group">
+                  <Download className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                  <span>Download Prospectus</span>
+                </button>
               </div>
             </motion.div>
             <motion.div
