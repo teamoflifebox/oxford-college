@@ -15,8 +15,7 @@ import {
   ChevronRight,
   ChevronDown,
   Star,
-  Menu,
-  X,
+  Menu
   TrendingUp,
   Download,
   LogIn,

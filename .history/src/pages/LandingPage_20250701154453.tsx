@@ -15,8 +15,6 @@ import {
   ChevronRight,
   ChevronDown,
   Star,
-  Menu,
-  X,
   TrendingUp,
   Download,
   LogIn,
@@ -35,7 +33,6 @@ type Course = {
 };
 
 const LandingPage: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [modalOpen,setModalOpen] = useState(false);
@@ -133,175 +130,113 @@ const handleLearnMore = (course: Course) => {
         </div>
       </motion.nav> */}
       <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      className="fixed top-0 w-full bg-white/95 backdrop-blur-md border-b border-primary-100 z-50"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo & Title */}
-          <div className="flex items-center space-x-3">
-            <div className="bg-gradient-forest p-2 rounded-xl shadow-nature">
-              <GraduationCap className="w-6 h-6 text-white" />
-            </div>
-            <div>
-              <span className="text-xl font-bold text-gradient">Oxford College</span>
-              <p className="text-xs text-sage-600 -mt-1">Technology Excellence</p>
-            </div>
-          </div>
-
-          {/* Desktop Nav */}
-          <div className="hidden md:flex items-center space-x-8">
-            <div className="relative group">
-              <button className="flex items-center gap-1 text-sage-600 hover:text-primary-600 transition-colors">
-                Programs
-                <ChevronDown className="w-4 h-4" />
-              </button>
-              <div className="absolute left-0 mt-2 w-40 bg-white rounded-lg shadow-lg hidden group-hover:block z-50">
-                <a href="#ug" className="block px-4 py-2 hover:bg-gray-100">UG</a>
-                <a href="#pg" className="block px-4 py-2 hover:bg-gray-100">PG</a>
-                <a href="#certification" className="block px-4 py-2 hover:bg-gray-100">Certification</a>
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        className="fixed top-0 w-full bg-white/95 backdrop-blur-md border-b border-primary-100 z-50"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            {/* Logo & Title */}
+            <div className="flex items-center space-x-3">
+              <div className="bg-gradient-forest p-2 rounded-xl shadow-nature">
+                <GraduationCap className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <span className="text-xl font-bold text-gradient">Oxford College</span>
+                <p className="text-xs text-sage-600 -mt-1">Technology Excellence</p>
               </div>
             </div>
-            <a href="#lab" className="text-sage-600 hover:text-primary-600 transition-colors">Innovation Lab</a>
-            <a href="#careers" className="text-sage-600 hover:text-primary-600 transition-colors">Careers</a>
-            <a href="#gallery" className="text-sage-600 hover:text-primary-600 transition-colors">Campus Gallery</a>
-          </div>
 
-          {/* Action Buttons */}
-          <div className="hidden md:flex items-center space-x-4">
-            <DownloadButton
-              fileLink="/files/Oxford_Brochure_Placeholder.pdf"
-              label="Prospectus"
-              countdown={5}
-              className="btn-secondary"
-              forceDownload={true}
-            />
-            <button onClick={() => navigate('/login')} className="btn-primary flex items-center gap-1">
-              <LogIn className="w-4 h-4" />
-              <span>Login</span>
-            </button>
-          </div>
+            {/* Desktop Nav */}
+            <div className="hidden md:flex items-center space-x-8">
+              {/* Programs dropdown */}
+              <div className="relative group">
+                <button className="flex items-center gap-1 text-sage-600 hover:text-primary-600 transition-colors">
+                  Programs
+                  <ChevronDown className="w-4 h-4" />
+                </button>
+                <div className="absolute left-0 mt-2 w-40 bg-white rounded-lg shadow-lg hidden group-hover:block z-50">
+                  <a href="#ug" className="block px-4 py-2 hover:bg-gray-100">UG</a>
+                  <a href="#pg" className="block px-4 py-2 hover:bg-gray-100">PG</a>
+                  <a href="#certification" className="block px-4 py-2 hover:bg-gray-100">Certification</a>
+                </div>
+              </div>
+              <a href="#lab" className="text-sage-600 hover:text-primary-600 transition-colors">Innovation Lab</a>
+              <a href="#careers" className="text-sage-600 hover:text-primary-600 transition-colors">Careers</a>
+              <a href="#gallery" className="text-sage-600 hover:text-primary-600 transition-colors">Campus Gallery</a>
+            </div>
+            <div className="flex items-center space-x-4">
+                <DownloadButton
+                   fileLink="/files/Oxford_Brochure_Placeholder.pdf"   // ⬅️ update path to your PDF
+                   label="Prospectus"
+                   countdown={5}                            // seconds before download starts
+                    className="btn-secondary"
+                    forceDownload={true}
+                />
 
-          {/* Mobile Menu Toggle */}
-          <div className="md:hidden">
-            <button onClick={() => setIsOpen(!isOpen)} className="text-sage-600 hover:text-primary-600 focus:outline-none">
-              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
+                <button onClick={() => navigate('/login')} className="btn-primary">
+                <LogIn className="w-4 h-4" />
+                  <span>Login</span>
+                 </button>
+               </div>
           </div>
         </div>
-
-        {/* Mobile Menu */}
-        {isOpen && (
-          <div className="md:hidden mt-2 space-y-2 bg-white p-4 rounded-lg shadow-md">
-            <div className="space-y-1">
-              <details className="group">
-                <summary className="flex items-center justify-between cursor-pointer text-sage-600 hover:text-primary-600">
-                  <span>Programs</span>
-                  <ChevronDown className="w-4 h-4 transform group-open:rotate-180 transition" />
-                </summary>
-                <div className="ml-4 mt-2 space-y-1">
-                  <a href="#ug" className="block hover:text-primary-500">UG</a>
-                  <a href="#pg" className="block hover:text-primary-500">PG</a>
-                  <a href="#certification" className="block hover:text-primary-500">Certification</a>
-                </div>
-              </details>
-              <a href="#lab" className="block hover:text-primary-600">Innovation Lab</a>
-              <a href="#careers" className="block hover:text-primary-600">Careers</a>
-              <a href="#gallery" className="block hover:text-primary-600">Campus Gallery</a>
-            </div>
-
-            <div className="pt-4 border-t border-gray-200 space-y-2">
-              <DownloadButton
-                fileLink="/files/Oxford_Brochure_Placeholder.pdf"
-                label="Prospectus"
-                countdown={5}
-                className="btn-secondary w-full text-center"
-                forceDownload={true}
-              />
-              <button onClick={() => navigate('/login')} className="btn-primary w-full flex items-center justify-center gap-2">
-                <LogIn className="w-4 h-4" />
-                <span>Login</span>
-              </button>
-            </div>
-          </div>
-        )}
-      </div>
-    </motion.nav>
+      </motion.nav>
       
       {/* Hero Section */}
       <section className="pt-16 relative overflow-hidden">
         
         {/* Background decorations */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-primary-200/30 to-secondary-200/30 rounded-full -translate-y-48 translate-x-48"></div>
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-forest-200/40 to-accent-200/40 rounded-full translate-y-32 -translate-x-32"></div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <div className="flex items-center space-x-2 mb-4">
-                <Brain className="w-6 h-6 text-primary-600 animate-float" />
-                <span className="text-primary-600 font-medium">AI & Technology Education</span>
-              </div>
-              <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-                Shape Your Future at
-                <span className="text-gradient block">Oxford College</span>
-              </h1>
-              <p className="text-xl text-sage-600 mb-8 leading-relaxed">
-                Leading the way in AI, Machine Learning, and Computer Science education. Join our tech-focused community and become an industry leader.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button 
-                  onClick={() => navigate('/login')}
-                  className="btn-primary group"
-                >
-                  <LogIn className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                  <span>Access ERP Portal</span>
-                </button>
-               
-                  <DownloadButton
-                   fileLink="/files/Oxford_Brochure_Placeholder.pdf"   // ⬅️ update path to your PDF
-                   label="Download Prospectus"
-                   countdown={5}                            // seconds before download starts
-                    className="btn-secondary"
-                    forceDownload={true}
-                />
-          
-              </div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative"
-            >
-              <div className="relative">
-                <img 
-                  src="https://images.pexels.com/photos/1595391/pexels-photo-1595391.jpeg?auto=compress&cs=tinysrgb&w=800" 
-                  alt="Oxford College Tech Campus"
-                  className="rounded-3xl shadow-forest"
-                />
-                <div className="absolute -bottom-6 -left-6 card-nature p-6">
-                  <div className="flex items-center space-x-4">
-                    <div className="bg-gradient-forest p-3 rounded-xl">
-                      <Award className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <p className="font-semibold text-gray-900">NAAC A+ Accredited</p>
-                      <p className="text-sm text-sage-600">Top Tech Institution</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-           
-          </div>
-           {/* <Announcements/> */}
+        <motion.div
+        initial={{ opacity: 0, x: -40 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+        className="md:w-1/2 text-center md:text-left z-10"
+      >
+        <h1 className="text-4xl lg:text-6xl font-extrabold text-gray-900 leading-tight">
+          Empowering <span className="text-gradient">Tech Leaders</span><br />
+          with Future-Ready Skills
+        </h1>
+        <p className="mt-6 text-lg text-gray-600 max-w-md">
+          Join Oxford College to master AI, Data Science, and ML with real-world learning and top-tier placements.
+        </p>
+        <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+          <button
+            onClick={() => navigate('/login')}
+            className="px-6 py-3 bg-gradient-to-r from-primary-600 to-secondary-600 text-white rounded-xl font-semibold hover:scale-105 transition-transform"
+          >
+            <LogIn className="inline-block w-5 h-5 mr-2" />
+            Access ERP
+          </button>
+          <a
+            href="/files/Oxford_Brochure_Placeholder.pdf"
+            download
+            className="px-6 py-3 border border-primary-300 text-primary-600 rounded-xl font-semibold hover:bg-primary-50 transition"
+          >
+            <Download className="inline-block w-5 h-5 mr-2" />
+            Download Brochure
+          </a>
         </div>
+      </motion.div>
+
+      {/* Right Side - Image */}
+      <motion.div
+        initial={{ opacity: 0, x: 40 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+        className="md:w-1/2 flex justify-center z-10"
+      >
+        <img
+          src="https://cdn.dribbble.com/users/1615584/screenshots/16156769/media/3537c23ea8ae473bdf96d2ff9dc55c5f.png?compress=1&resize=1000x750"
+          alt="Oxford ERP Illustration"
+          className="w-full max-w-xl object-contain animate-float"
+        />
+      </motion.div>
+
+      {/* Decorative Gradient Blobs */}
+      <div className="absolute top-0 left-0 w-80 h-80 bg-gradient-to-br from-primary-100 to-secondary-100 rounded-full opacity-30 blur-2xl -translate-x-1/2 -translate-y-1/2 z-0" />
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-gradient-to-tr from-secondary-100 to-accent-100 rounded-full opacity-30 blur-2xl translate-x-1/2 translate-y-1/2 z-0" />
+       
         <Announcements/>
       </section>
       {/* About Section */}
