@@ -24,6 +24,7 @@ import {
 } from 'lucide-react';
 import Announcements from './Announcements';
 import DownloadButton from '../components/DownloadButton';
+import ImageCarousel from '../components/ImageCarousel';
 type Course = {
   name: string;
   duration: string;
@@ -43,11 +44,11 @@ const handleLearnMore = (course: Course) => {
   };
 
   const courses = [
-    { name: 'Computer Science Engineering with AI', duration: '4 Years', seats: 120, icon: '🤖',fileLink:'/files/Computer_Science_Engineering_with_AI.pdf' },
-    { name: 'Artificial Intelligence & Machine Learning', duration: '4 Years', seats: 100, icon: '🧠',fileLink:'/files/AI_ML_curriculam.pdf' },
-    { name: 'Computer Science Engineering', duration: '4 Years', seats: 150, icon: '💻',fileLink:'/files/CSE_curriculam.pdf' },
-    { name: 'Machine Learning Engineering', duration: '4 Years', seats: 80, icon: '⚙️', fileLink:'/files/ML_engineering.pdf' },
-    { name: 'AI & Data Science', duration: '4 Years', seats: 90, icon: '📊',fileLink:'/files/AI_ML_curriculam.pdf'},
+    { name: 'Computer Science Engineering with AI', duration: '4 Years', seats: 120, icon: '🤖',fileLink:'files/Computer_Science_Engineering_with_AI.pdf' },
+    { name: 'Artificial Intelligence & Machine Learning', duration: '4 Years', seats: 100, icon: '🧠',fileLink:'files/AI_ML_curriculam.pdf' },
+    { name: 'Computer Science Engineering', duration: '4 Years', seats: 150, icon: '💻',fileLink:'CSE_curriculam.pdf' },
+    { name: 'Machine Learning Engineering', duration: '4 Years', seats: 80, icon: '⚙️', fileLink:'files/ML_engineering.pdf' },
+    { name: 'AI & Data Science', duration: '4 Years', seats: 90, icon: '📊',fileLink:'files/AI_ML_curriculam.pdf'},
     { name: 'Data Science & Analytics', duration: '4 Years', seats: 70, icon: '📈',fileLink:'/files/DatascienceandAnalytics.pdf' }
   ];
   
@@ -79,6 +80,23 @@ const handleLearnMore = (course: Course) => {
       rating: 5
     }
   ];
+  const carouselData = [
+  {
+    image: 'https://images.pexels.com/photos/256401/pexels-photo-256401.jpeg?auto=compress&cs=tinysrgb&w=800',
+    title: 'AI Innovation Lab',
+    subtitle: 'Cutting-edge infrastructure for machine learning research'
+  },
+  {
+    image: 'https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=800',
+    title: 'Oxford Tech Campus',
+    subtitle: 'Modern facilities & green spaces for innovation'
+  },
+  {
+    image: 'https://images.pexels.com/photos/1181396/pexels-photo-1181396.jpeg?auto=compress&cs=tinysrgb&w=800',
+    title: 'Hackathons & Events',
+    subtitle: 'Solving real-world problems through tech competitions'
+  }
+];
 
   const stats = [
     { label: 'Tech Placement Rate', value: '95%', icon: TrendingUp },
@@ -197,7 +215,7 @@ const handleLearnMore = (course: Course) => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <div className="flex items-center space-x-2 mb-4">
+              {/* <div className="flex items-center space-x-2 mb-4">
                 <Brain className="w-6 h-6 text-primary-600 animate-float" />
                 <span className="text-primary-600 font-medium">AI & Technology Education</span>
               </div>
@@ -225,9 +243,10 @@ const handleLearnMore = (course: Course) => {
                     forceDownload={true}
                 />
           
-              </div>
+              </div> */}
+              <ImageCarousel items={carouselData} />
             </motion.div>
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -251,7 +270,7 @@ const handleLearnMore = (course: Course) => {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </motion.div> */}
            
           </div>
            {/* <Announcements/> */}

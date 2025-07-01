@@ -24,6 +24,7 @@ import {
 } from 'lucide-react';
 import Announcements from './Announcements';
 import DownloadButton from '../components/DownloadButton';
+import ImageCarousel from '../components/ImageCarousel';
 type Course = {
   name: string;
   duration: string;
@@ -43,11 +44,11 @@ const handleLearnMore = (course: Course) => {
   };
 
   const courses = [
-    { name: 'Computer Science Engineering with AI', duration: '4 Years', seats: 120, icon: '🤖',fileLink:'/files/Computer_Science_Engineering_with_AI.pdf' },
-    { name: 'Artificial Intelligence & Machine Learning', duration: '4 Years', seats: 100, icon: '🧠',fileLink:'/files/AI_ML_curriculam.pdf' },
-    { name: 'Computer Science Engineering', duration: '4 Years', seats: 150, icon: '💻',fileLink:'/files/CSE_curriculam.pdf' },
-    { name: 'Machine Learning Engineering', duration: '4 Years', seats: 80, icon: '⚙️', fileLink:'/files/ML_engineering.pdf' },
-    { name: 'AI & Data Science', duration: '4 Years', seats: 90, icon: '📊',fileLink:'/files/AI_ML_curriculam.pdf'},
+    { name: 'Computer Science Engineering with AI', duration: '4 Years', seats: 120, icon: '🤖',fileLink:'files/Computer_Science_Engineering_with_AI.pdf' },
+    { name: 'Artificial Intelligence & Machine Learning', duration: '4 Years', seats: 100, icon: '🧠',fileLink:'files/AI_ML_curriculam.pdf' },
+    { name: 'Computer Science Engineering', duration: '4 Years', seats: 150, icon: '💻',fileLink:'CSE_curriculam.pdf' },
+    { name: 'Machine Learning Engineering', duration: '4 Years', seats: 80, icon: '⚙️', fileLink:'files/ML_engineering.pdf' },
+    { name: 'AI & Data Science', duration: '4 Years', seats: 90, icon: '📊',fileLink:'files/AI_ML_curriculam.pdf'},
     { name: 'Data Science & Analytics', duration: '4 Years', seats: 70, icon: '📈',fileLink:'/files/DatascienceandAnalytics.pdf' }
   ];
   
@@ -79,6 +80,23 @@ const handleLearnMore = (course: Course) => {
       rating: 5
     }
   ];
+  const carouselData = [
+  {
+    image: 'https://images.pexels.com/photos/256401/pexels-photo-256401.jpeg?auto=compress&cs=tinysrgb&w=800',
+    title: 'AI Innovation Lab',
+    subtitle: 'Cutting-edge infrastructure for machine learning research'
+  },
+  {
+    image: 'https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=800',
+    title: 'Oxford Tech Campus',
+    subtitle: 'Modern facilities & green spaces for innovation'
+  },
+  {
+    image: 'https://images.pexels.com/photos/1181396/pexels-photo-1181396.jpeg?auto=compress&cs=tinysrgb&w=800',
+    title: 'Hackathons & Events',
+    subtitle: 'Solving real-world problems through tech competitions'
+  }
+];
 
   const stats = [
     { label: 'Tech Placement Rate', value: '95%', icon: TrendingUp },
@@ -187,9 +205,9 @@ const handleLearnMore = (course: Course) => {
       <section className="pt-16 relative overflow-hidden">
         
         {/* Background decorations */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-primary-200/30 to-secondary-200/30 rounded-full -translate-y-48 translate-x-48"></div>
+        {/* <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-primary-200/30 to-secondary-200/30 rounded-full -translate-y-48 translate-x-48"></div>
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-forest-200/40 to-accent-200/40 rounded-full translate-y-32 -translate-x-32"></div>
-        
+         */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -197,7 +215,7 @@ const handleLearnMore = (course: Course) => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <div className="flex items-center space-x-2 mb-4">
+              {/* <div className="flex items-center space-x-2 mb-4">
                 <Brain className="w-6 h-6 text-primary-600 animate-float" />
                 <span className="text-primary-600 font-medium">AI & Technology Education</span>
               </div>
@@ -225,7 +243,8 @@ const handleLearnMore = (course: Course) => {
                     forceDownload={true}
                 />
           
-              </div>
+              </div> */}
+              <ImageCarousel items={carouselData} />
             </motion.div>
             <motion.div
               initial={{ opacity: 0, x: 50 }}

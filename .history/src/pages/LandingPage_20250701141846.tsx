@@ -43,11 +43,11 @@ const handleLearnMore = (course: Course) => {
   };
 
   const courses = [
-    { name: 'Computer Science Engineering with AI', duration: '4 Years', seats: 120, icon: '🤖',fileLink:'/files/Computer_Science_Engineering_with_AI.pdf' },
-    { name: 'Artificial Intelligence & Machine Learning', duration: '4 Years', seats: 100, icon: '🧠',fileLink:'/files/AI_ML_curriculam.pdf' },
-    { name: 'Computer Science Engineering', duration: '4 Years', seats: 150, icon: '💻',fileLink:'/files/CSE_curriculam.pdf' },
-    { name: 'Machine Learning Engineering', duration: '4 Years', seats: 80, icon: '⚙️', fileLink:'/files/ML_engineering.pdf' },
-    { name: 'AI & Data Science', duration: '4 Years', seats: 90, icon: '📊',fileLink:'/files/AI_ML_curriculam.pdf'},
+    { name: 'Computer Science Engineering with AI', duration: '4 Years', seats: 120, icon: '🤖',fileLink:'files/Computer_Science_Engineering_with_AI.pdf' },
+    { name: 'Artificial Intelligence & Machine Learning', duration: '4 Years', seats: 100, icon: '🧠',fileLink:'files/AI_ML_curriculam.pdf' },
+    { name: 'Computer Science Engineering', duration: '4 Years', seats: 150, icon: '💻',fileLink:'CSE_curriculam.pdf' },
+    { name: 'Machine Learning Engineering', duration: '4 Years', seats: 80, icon: '⚙️', fileLink:'files/ML_engineering.pdf' },
+    { name: 'AI & Data Science', duration: '4 Years', seats: 90, icon: '📊',fileLink:'files/AI_ML_curriculam.pdf'},
     { name: 'Data Science & Analytics', duration: '4 Years', seats: 70, icon: '📈',fileLink:'/files/DatascienceandAnalytics.pdf' }
   ];
   
@@ -185,7 +185,7 @@ const handleLearnMore = (course: Course) => {
       
       {/* Hero Section */}
       <section className="pt-16 relative overflow-hidden">
-        
+        {/* <Announcements/> */}
         {/* Background decorations */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-primary-200/30 to-secondary-200/30 rounded-full -translate-y-48 translate-x-48"></div>
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-forest-200/40 to-accent-200/40 rounded-full translate-y-32 -translate-x-32"></div>
@@ -577,8 +577,5 @@ const handleLearnMore = (course: Course) => {
 };
 
 export default LandingPage;
-
-
-
 
 
