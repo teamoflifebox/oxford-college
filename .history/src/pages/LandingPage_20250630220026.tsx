@@ -24,33 +24,18 @@ import {
 } from 'lucide-react';
 import Announcements from './Announcements';
 import DownloadButton from '../components/DownloadButton';
-type Course = {
-  name: string;
-  duration: string;
-  seats: number;
-  icon: string;
-  fileLink:string
-};
-
 const LandingPage: React.FC = () => {
   const navigate = useNavigate();
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
-  const [modalOpen,setModalOpen] = useState(false);
-  const [selectedCourse,setSelectedCourse] = useState<Course | null>(null)
-const handleLearnMore = (course: Course) => {
-    setSelectedCourse(course);
-    setModalOpen(true);
-  };
 
   const courses = [
-    { name: 'Computer Science Engineering with AI', duration: '4 Years', seats: 120, icon: '🤖',fileLink:'files/Computer_Science_Engineering_with_AI.pdf' },
-    { name: 'Artificial Intelligence & Machine Learning', duration: '4 Years', seats: 100, icon: '🧠',fileLink:'files/AI_ML_curriculam.pdf' },
-    { name: 'Computer Science Engineering', duration: '4 Years', seats: 150, icon: '💻',fileLink:'CSE_curriculam.pdf' },
-    { name: 'Machine Learning Engineering', duration: '4 Years', seats: 80, icon: '⚙️', fileLink:'files/ML_engineering.pdf' },
-    { name: 'AI & Data Science', duration: '4 Years', seats: 90, icon: '📊',fileLink:'files/AI_ML_curriculam.pdf'},
-    { name: 'Data Science & Analytics', duration: '4 Years', seats: 70, icon: '📈',fileLink:'/files/DatascienceandAnalytics.pdf' }
+    { name: 'Computer Science Engineering with AI', duration: '4 Years', seats: 120, icon: '🤖' },
+    { name: 'Artificial Intelligence & Machine Learning', duration: '4 Years', seats: 100, icon: '🧠' },
+    { name: 'Computer Science Engineering', duration: '4 Years', seats: 150, icon: '💻' },
+    { name: 'Machine Learning Engineering', duration: '4 Years', seats: 80, icon: '⚙️' },
+    { name: 'AI & Data Science', duration: '4 Years', seats: 90, icon: '📊' },
+    { name: 'Data Science & Analytics', duration: '4 Years', seats: 70, icon: '📈' }
   ];
-  
 
   const facilities = [
     { icon: Code, title: 'AI Research Labs', desc: 'State-of-the-art AI and ML research facilities' },
@@ -336,8 +321,7 @@ const handleLearnMore = (course: Course) => {
                   <span>Duration: {course.duration}</span>
                   <span>Seats: {course.seats}</span>
                 </div>
-                <button className="w-full py-2 text-primary-600 border border-primary-200 rounded-xl hover:bg-primary-50 transition-colors"
-                onClick={() => handleLearnMore(course)}>
+                <button className="w-full py-2 text-primary-600 border border-primary-200 rounded-xl hover:bg-primary-50 transition-colors">
                   Learn More
                 </button>
               </motion.div>
@@ -563,19 +547,8 @@ const handleLearnMore = (course: Course) => {
           </div>
         </div>
       </footer>
-     {/* Modal */}
-     {
-      modalOpen && selectedCourse && (
-        <LearnMoreModal 
-          onClose={()=>setModalOpen(false)}
-          course={selectedCourse}
-        />
-      )
-     }
     </div>
   );
 };
 
 export default LandingPage;
-
-

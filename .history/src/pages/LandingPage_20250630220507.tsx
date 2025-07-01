@@ -29,26 +29,23 @@ type Course = {
   duration: string;
   seats: number;
   icon: string;
-  fileLink:string
 };
 
 const LandingPage: React.FC = () => {
   const navigate = useNavigate();
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
-  const [modalOpen,setModalOpen] = useState(false);
-  const [selectedCourse,setSelectedCourse] = useState<Course | null>(null)
 const handleLearnMore = (course: Course) => {
     setSelectedCourse(course);
     setModalOpen(true);
   };
 
   const courses = [
-    { name: 'Computer Science Engineering with AI', duration: '4 Years', seats: 120, icon: '🤖',fileLink:'files/Computer_Science_Engineering_with_AI.pdf' },
-    { name: 'Artificial Intelligence & Machine Learning', duration: '4 Years', seats: 100, icon: '🧠',fileLink:'files/AI_ML_curriculam.pdf' },
-    { name: 'Computer Science Engineering', duration: '4 Years', seats: 150, icon: '💻',fileLink:'CSE_curriculam.pdf' },
-    { name: 'Machine Learning Engineering', duration: '4 Years', seats: 80, icon: '⚙️', fileLink:'files/ML_engineering.pdf' },
-    { name: 'AI & Data Science', duration: '4 Years', seats: 90, icon: '📊',fileLink:'files/AI_ML_curriculam.pdf'},
-    { name: 'Data Science & Analytics', duration: '4 Years', seats: 70, icon: '📈',fileLink:'/files/DatascienceandAnalytics.pdf' }
+    { name: 'Computer Science Engineering with AI', duration: '4 Years', seats: 120, icon: '🤖' },
+    { name: 'Artificial Intelligence & Machine Learning', duration: '4 Years', seats: 100, icon: '🧠' },
+    { name: 'Computer Science Engineering', duration: '4 Years', seats: 150, icon: '💻' },
+    { name: 'Machine Learning Engineering', duration: '4 Years', seats: 80, icon: '⚙️' },
+    { name: 'AI & Data Science', duration: '4 Years', seats: 90, icon: '📊' },
+    { name: 'Data Science & Analytics', duration: '4 Years', seats: 70, icon: '📈' }
   ];
   
 
@@ -563,19 +560,16 @@ const handleLearnMore = (course: Course) => {
           </div>
         </div>
       </footer>
-     {/* Modal */}
-     {
-      modalOpen && selectedCourse && (
-        <LearnMoreModal 
-          onClose={()=>setModalOpen(false)}
-          course={selectedCourse}
-        />
-      )
-     }
     </div>
   );
 };
 
 export default LandingPage;
 
+function setModalOpen(arg0: boolean) {
+  throw new Error('Function not implemented.');
+}
+function setSelectedCourse(course: Course) {
+  throw new Error('Function not implemented.');
+}
 
