@@ -9,22 +9,12 @@ export default {
       },
       animation: {
         marquee: 'marquee 30s linear infinite',
-        'blob': 'blob 8s ease-in-out infinite',
-       'float': 'float 3s ease-in-out infinite', // Already present but required
-       'glow': 'glow 2s ease-in-out infinite alternate', // Already present
-       'spin-slow': 'spin 10s linear infinite',
-       'animate-delay-500': 'float 3s ease-in-out infinite 0.5s',
-        'animate-delay-700': 'float 3s ease-in-out infinite 0.7s',
         },
   keyframes: {
     marquee: {
       '0%': { transform: 'translateX(100%)' },
       '100%': { transform: 'translateX(-100%)' },
     },
-    blob: {
-  '0%, 100%': { transform: 'translate(0px, 0px) scale(1)' },
-  '50%': { transform: 'translate(25px, -30px) scale(1.05)' },
-}
   },
       colors: {
         primary: {
@@ -254,13 +244,11 @@ export default {
         'glow': '0 0 20px rgba(14, 165, 233, 0.3)',
         'glow-accent': '0 0 20px rgba(217, 70, 239, 0.3)',
         'inner-soft': 'inset 0 2px 4px rgba(0, 0, 0, 0.06)',
-        'hero-blob': '0 4px 40px rgba(0, 0, 0, 0.15)',
       },
       borderRadius: {
         '4xl': '2rem',
         '5xl': '2.5rem',
       },
-    
     },
   },
   plugins: [],

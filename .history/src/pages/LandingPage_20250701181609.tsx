@@ -92,6 +92,46 @@ const handleLearnMore = (course: Course) => {
 
   return (
     <div className="min-h-screen bg-gradient-nature">
+      {/* Navigation */}
+      {/* <motion.nav 
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        className="fixed top-0 w-full bg-white/95 backdrop-blur-md border-b border-primary-100 z-50"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <div className="flex items-center space-x-3">
+              <div className="bg-gradient-forest p-2 rounded-xl shadow-nature">
+                <GraduationCap className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <span className="text-xl font-bold text-gradient">Oxford College</span>
+                <p className="text-xs text-sage-600 -mt-1">Technology Excellence</p>
+              </div>
+            </div>
+            <div className="hidden md:flex items-center space-x-8">
+              <a href="#about" className="text-sage-600 hover:text-primary-600 transition-colors">About</a>
+              <a href="#courses" className="text-sage-600 hover:text-primary-600 transition-colors">Courses</a>
+              <a href="#facilities" className="text-sage-600 hover:text-primary-600 transition-colors">Facilities</a>
+              <a href="#placements" className="text-sage-600 hover:text-primary-600 transition-colors">Placements</a>
+              <a href="#contact" className="text-sage-600 hover:text-primary-600 transition-colors">Contact</a>
+            </div>
+            <div className="flex items-center space-x-4">
+              <button className="btn-secondary">
+                <Download className="w-4 h-4" />
+                <span>Prospectus</span>
+              </button>
+              <button 
+                onClick={() => navigate('/login')}
+                className="btn-primary"
+              >
+                <LogIn className="w-4 h-4" />
+                <span>Login</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </motion.nav> */}
       <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}

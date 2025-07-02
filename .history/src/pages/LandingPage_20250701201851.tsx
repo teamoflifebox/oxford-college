@@ -190,14 +190,15 @@ const handleLearnMore = (course: Course) => {
     </motion.nav>
       
       {/* Hero Section */}
-      <section className="pt-16 relative overflow-hidden">
-  {/* Background decorations */}
-  <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-primary-200/30 to-secondary-200/30 rounded-full -translate-y-48 translate-x-48 animate-pulse"></div>
-  <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-forest-200/40 to-accent-200/40 rounded-full translate-y-32 -translate-x-32 animate-spin-slow"></div>
+      
+      <section className="pt-24 relative overflow-hidden">
+  {/* Background Decorations */}
+  <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-primary-200/30 to-secondary-200/30 rounded-full -translate-y-48 translate-x-48 animate-pulse blur-2xl"></div>
+  <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-forest-200/40 to-accent-200/40 rounded-full translate-y-32 -translate-x-32 animate-spin-slow blur-xl"></div>
 
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-      {/* Left content */}
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      {/* Left Content */}
       <motion.div
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 1, x: 0 }}
@@ -205,18 +206,16 @@ const handleLearnMore = (course: Course) => {
       >
         <div className="flex items-center space-x-2 mb-4">
           <Brain className="w-6 h-6 text-primary-600 animate-bounce" />
-          <span className="text-primary-600 font-medium tracking-wide">
+          <span className="text-primary-600 font-semibold tracking-wide text-sm uppercase">
             AI & Technology Education
           </span>
         </div>
-        <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-4 leading-tight">
-          <motion.span
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1 }}
-          >
+
+        <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-3">
+          <motion.span transition={{ duration: 1 }}>
             Shape Your Future at
           </motion.span>
+          <br />
           <motion.span
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
@@ -226,23 +225,16 @@ const handleLearnMore = (course: Course) => {
             Oxford College
           </motion.span>
         </h1>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 0.8 }}
-          className="text-xl text-sage-600 mb-8 leading-relaxed"
-        >
-          Leading the way in AI, Machine Learning, and Computer Science education. Join our tech-focused community and become an industry leader.
-        </motion.p>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.2, duration: 0.8 }}
-          className="flex flex-col sm:flex-row gap-4"
-        >
+
+        <p className="text-lg sm:text-xl text-sage-700 mt-4 mb-8 max-w-xl leading-relaxed">
+          Empowering tomorrow’s leaders in AI, Machine Learning & Computer Science. Join a dynamic, tech-forward campus today.
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-4">
           <button 
             onClick={() => navigate('/login')}
             className="btn-primary group"
+            aria-label="Access ERP Portal"
           >
             <LogIn className="w-5 h-5 group-hover:scale-110 transition-transform" />
             <span>Access ERP Portal</span>
@@ -254,30 +246,32 @@ const handleLearnMore = (course: Course) => {
             className="btn-secondary"
             forceDownload={true}
           />
-        </motion.div>
+        </div>
       </motion.div>
 
-      {/* Right image + badge */}
+      {/* Right Side – Image and Badge */}
       <motion.div
         initial={{ opacity: 0, x: 50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
         className="relative"
       >
-        <div className="relative">
+        <div className="relative group">
           <motion.img
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1 }}
             src="https://images.pexels.com/photos/1595391/pexels-photo-1595391.jpeg?auto=compress&cs=tinysrgb&w=800" 
             alt="Oxford College Tech Campus"
-            className="rounded-3xl shadow-forest"
+            className="rounded-3xl shadow-forest transition-transform duration-300 group-hover:scale-105 group-hover:brightness-105"
           />
+
+          {/* Badge Card */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1, duration: 0.6 }}
-            className="absolute -bottom-6 -left-6 card-nature p-6"
+            className="absolute -bottom-6 -left-6 card-nature p-6 rounded-2xl backdrop-blur bg-white/70 shadow-md"
           >
             <div className="flex items-center space-x-4">
               <div className="bg-gradient-forest p-3 rounded-xl">
@@ -298,7 +292,7 @@ const handleLearnMore = (course: Course) => {
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
-      className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-6 text-center"
+      className="mt-20 grid grid-cols-2 sm:grid-cols-4 gap-6 text-center"
     >
       {[
         { label: 'Years of Excellence', value: '35+', icon: Brain },
@@ -311,7 +305,7 @@ const handleLearnMore = (course: Course) => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: idx * 0.1, duration: 0.6 }}
-          className="p-4 rounded-xl bg-white/60 backdrop-blur border border-primary-100 shadow-nature"
+          className="p-5 rounded-xl bg-white/60 backdrop-blur border border-primary-100 shadow-nature"
         >
           <div className="mb-2 flex justify-center">
             <item.icon className="w-6 h-6 text-primary-600" />

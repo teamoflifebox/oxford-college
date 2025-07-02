@@ -92,6 +92,46 @@ const handleLearnMore = (course: Course) => {
 
   return (
     <div className="min-h-screen bg-gradient-nature">
+      {/* Navigation */}
+      {/* <motion.nav 
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        className="fixed top-0 w-full bg-white/95 backdrop-blur-md border-b border-primary-100 z-50"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <div className="flex items-center space-x-3">
+              <div className="bg-gradient-forest p-2 rounded-xl shadow-nature">
+                <GraduationCap className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <span className="text-xl font-bold text-gradient">Oxford College</span>
+                <p className="text-xs text-sage-600 -mt-1">Technology Excellence</p>
+              </div>
+            </div>
+            <div className="hidden md:flex items-center space-x-8">
+              <a href="#about" className="text-sage-600 hover:text-primary-600 transition-colors">About</a>
+              <a href="#courses" className="text-sage-600 hover:text-primary-600 transition-colors">Courses</a>
+              <a href="#facilities" className="text-sage-600 hover:text-primary-600 transition-colors">Facilities</a>
+              <a href="#placements" className="text-sage-600 hover:text-primary-600 transition-colors">Placements</a>
+              <a href="#contact" className="text-sage-600 hover:text-primary-600 transition-colors">Contact</a>
+            </div>
+            <div className="flex items-center space-x-4">
+              <button className="btn-secondary">
+                <Download className="w-4 h-4" />
+                <span>Prospectus</span>
+              </button>
+              <button 
+                onClick={() => navigate('/login')}
+                className="btn-primary"
+              >
+                <LogIn className="w-4 h-4" />
+                <span>Login</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </motion.nav> */}
       <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -190,141 +230,177 @@ const handleLearnMore = (course: Course) => {
     </motion.nav>
       
       {/* Hero Section */}
-      <section className="pt-16 relative overflow-hidden">
-  {/* Background decorations */}
-  <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-primary-200/30 to-secondary-200/30 rounded-full -translate-y-48 translate-x-48 animate-pulse"></div>
-  <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-forest-200/40 to-accent-200/40 rounded-full translate-y-32 -translate-x-32 animate-spin-slow"></div>
+      <section className="relative min-h-screen hero-gradient overflow-hidden">
+        {/* Hero overlay */}
+        <div className="absolute inset-0 hero-overlay"></div>
+        
+        {/* Animated background elements */}
+        <div className="absolute top-20 left-10 w-32 h-32 bg-white/10 rounded-full blur-xl floating-animation"></div>
+        <div className="absolute top-40 right-20 w-24 h-24 bg-white/15 rounded-full blur-lg floating-animation" style={{animationDelay: '2s'}}></div>
+        <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-white/5 rounded-full blur-2xl floating-animation" style={{animationDelay: '4s'}}></div>
+        
+        <div className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 z-10">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              
+              {/* Left content */}
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                className="text-white"
+              >
+                {/* Badge */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  className="inline-flex items-center space-x-2 glass-card px-4 py-2 rounded-full mb-8"
+                >
+                  <Brain className="w-5 h-5 text-white animate-pulse" />
+                  <span className="text-sm font-medium">Next-Gen AI Education Platform</span>
+                </motion.div>
 
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-      {/* Left content */}
-      <motion.div
-        initial={{ opacity: 0, x: -50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        <div className="flex items-center space-x-2 mb-4">
-          <Brain className="w-6 h-6 text-primary-600 animate-bounce" />
-          <span className="text-primary-600 font-medium tracking-wide">
-            AI & Technology Education
-          </span>
-        </div>
-        <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-4 leading-tight">
-          <motion.span
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1 }}
-          >
-            Shape Your Future at
-          </motion.span>
-          <motion.span
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.4, duration: 1 }}
-            className="text-gradient block"
-          >
-            Oxford College
-          </motion.span>
-        </h1>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 0.8 }}
-          className="text-xl text-sage-600 mb-8 leading-relaxed"
-        >
-          Leading the way in AI, Machine Learning, and Computer Science education. Join our tech-focused community and become an industry leader.
-        </motion.p>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.2, duration: 0.8 }}
-          className="flex flex-col sm:flex-row gap-4"
-        >
-          <button 
-            onClick={() => navigate('/login')}
-            className="btn-primary group"
-          >
-            <LogIn className="w-5 h-5 group-hover:scale-110 transition-transform" />
-            <span>Access ERP Portal</span>
-          </button>
-          <DownloadButton
-            fileLink="/files/Oxford_Brochure_Placeholder.pdf"
-            label="Download Prospectus"
-            countdown={5}
-            className="btn-secondary"
-            forceDownload={true}
-          />
-        </motion.div>
-      </motion.div>
+                {/* Main heading */}
+                <motion.h1
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                  className="text-5xl lg:text-7xl font-bold mb-6 leading-tight"
+                >
+                  Transform Your
+                  <span className="block text-gradient-hero">Tech Career</span>
+                  <span className="block text-4xl lg:text-5xl mt-2">at Oxford College</span>
+                </motion.h1>
 
-      {/* Right image + badge */}
-      <motion.div
-        initial={{ opacity: 0, x: 50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        className="relative"
-      >
-        <div className="relative">
-          <motion.img
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 1 }}
-            src="https://images.pexels.com/photos/1595391/pexels-photo-1595391.jpeg?auto=compress&cs=tinysrgb&w=800" 
-            alt="Oxford College Tech Campus"
-            className="rounded-3xl shadow-forest"
-          />
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1, duration: 0.6 }}
-            className="absolute -bottom-6 -left-6 card-nature p-6"
-          >
-            <div className="flex items-center space-x-4">
-              <div className="bg-gradient-forest p-3 rounded-xl">
-                <Award className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <p className="font-semibold text-gray-900">NAAC A+ Accredited</p>
-                <p className="text-sm text-sage-600">Top Tech Institution</p>
-              </div>
+                {/* Subheading */}
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.5 }}
+                  className="text-xl lg:text-2xl text-white/90 mb-8 leading-relaxed max-w-2xl"
+                >
+                  Leading the future of technology education with cutting-edge AI, Machine Learning, and Computer Science programs designed for tomorrow's innovators.
+                </motion.p>
+
+                {/* Stats row */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.6 }}
+                  className="flex flex-wrap gap-8 mb-10"
+                >
+                  {[
+                    { number: '35+', label: 'Years Excellence' },
+                    { number: '95%', label: 'Placement Rate' },
+                    { number: '10K+', label: 'Alumni Network' }
+                  ].map((stat, index) => (
+                    <div key={index} className="text-center">
+                      <div className="text-3xl font-bold text-white">{stat.number}</div>
+                      <div className="text-white/80 text-sm">{stat.label}</div>
+                    </div>
+                  ))}
+                </motion.div>
+
+                {/* CTA buttons */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.7 }}
+                  className="flex flex-col sm:flex-row gap-4"
+                >
+                  <button 
+                    onClick={() => navigate('/login')}
+                    className="inline-flex items-center justify-center space-x-3 px-8 py-4 bg-white text-gray-900 rounded-2xl hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 font-semibold text-lg shadow-2xl pulse-glow"
+                  >
+                    <LogIn className="w-5 h-5" />
+                    <span>Access ERP Portal</span>
+                  </button>
+                  
+                  <DownloadButton
+                    fileLink="/files/Oxford_Brochure_Placeholder.pdf"
+                    label="Download Prospectus"
+                    countdown={5}
+                    className="inline-flex items-center justify-center space-x-3 px-8 py-4 glass-card text-white rounded-2xl hover:bg-white/20 transition-all duration-300 font-semibold text-lg border border-white/30"
+                    forceDownload={true}
+                  />
+                </motion.div>
+
+                {/* Trust indicators */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.8 }}
+                  className="flex items-center space-x-6 mt-12"
+                >
+                  <div className="flex items-center space-x-2">
+                    <Award className="w-6 h-6 text-yellow-300" />
+                    <span className="text-white/90 text-sm">NAAC A+ Accredited</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <Building className="w-6 h-6 text-blue-300" />
+                    <span className="text-white/90 text-sm">200+ Industry Partners</span>
+                  </div>
+                </motion.div>
+              </motion.div>
+
+              {/* Right visual */}
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="relative lg:h-[600px] flex items-center justify-center"
+              >
+                {/* Main image container */}
+                <div className="relative">
+                  <div className="glass-card p-8 rounded-3xl floating-animation">
+                    <img 
+                      src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80"
+                      alt="Students working on computers in modern tech lab"
+                      className="w-full h-80 object-cover rounded-2xl"
+                    />
+                  </div>
+                  
+                  {/* Floating stats card */}
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6, delay: 1 }}
+                    className="absolute -bottom-6 -left-6 glass-card p-6 rounded-2xl floating-animation"
+                    style={{animationDelay: '1s'}}
+                  >
+                    <div className="flex items-center space-x-4">
+                      <div className="bg-white/20 p-3 rounded-xl">
+                        <TrendingUp className="w-8 h-8 text-white" />
+                      </div>
+                      <div className="text-white">
+                        <p className="text-2xl font-bold">95%</p>
+                        <p className="text-sm text-white/80">Placement Success</p>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  {/* Floating tech icons */}
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6, delay: 1.2 }}
+                    className="absolute -top-4 -right-4 glass-card p-4 rounded-2xl floating-animation"
+                    style={{animationDelay: '3s'}}
+                  >
+                    <Brain className="w-8 h-8 text-white" />
+                  </motion.div>
+                </div>
+              </motion.div>
             </div>
-          </motion.div>
-        </div>
-      </motion.div>
-    </div>
-
-    {/* Stats Section */}
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-      className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-6 text-center"
-    >
-      {[
-        { label: 'Years of Excellence', value: '35+', icon: Brain },
-        { label: 'Tech Graduates', value: '10K+', icon: Users },
-        { label: 'Placement Rate', value: '95%', icon: TrendingUp },
-        { label: 'Courses Offered', value: '50+', icon: BookOpen }
-      ].map((item, idx) => (
-        <motion.div
-          key={idx}
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: idx * 0.1, duration: 0.6 }}
-          className="p-4 rounded-xl bg-white/60 backdrop-blur border border-primary-100 shadow-nature"
-        >
-          <div className="mb-2 flex justify-center">
-            <item.icon className="w-6 h-6 text-primary-600" />
           </div>
-          <h3 className="text-2xl font-bold text-gray-900">{item.value}</h3>
-          <p className="text-sage-600 text-sm">{item.label}</p>
-        </motion.div>
-      ))}
-    </motion.div>
-  </div>
+        </div>
 
-  <Announcements />
-</section>
+        {/* Announcements at bottom of hero */}
+        <div className="absolute bottom-0 left-0 right-0 z-20">
+          <Announcements/>
+        </div>
+      </section>
 
       {/* About Section */}
       <section id="about" className="py-20 bg-white/50 backdrop-blur-sm">

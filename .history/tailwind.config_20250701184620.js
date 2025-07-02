@@ -254,13 +254,15 @@ export default {
         'glow': '0 0 20px rgba(14, 165, 233, 0.3)',
         'glow-accent': '0 0 20px rgba(217, 70, 239, 0.3)',
         'inner-soft': 'inset 0 2px 4px rgba(0, 0, 0, 0.06)',
-        'hero-blob': '0 4px 40px rgba(0, 0, 0, 0.15)',
       },
       borderRadius: {
         '4xl': '2rem',
         '5xl': '2.5rem',
       },
-    
+      boxShadow: {
+    // Your existing ones ...
+    'hero-blob': '0 4px 40px rgba(0, 0, 0, 0.15)',
+  },
     },
   },
   plugins: [],

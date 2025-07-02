@@ -92,6 +92,46 @@ const handleLearnMore = (course: Course) => {
 
   return (
     <div className="min-h-screen bg-gradient-nature">
+      {/* Navigation */}
+      {/* <motion.nav 
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        className="fixed top-0 w-full bg-white/95 backdrop-blur-md border-b border-primary-100 z-50"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <div className="flex items-center space-x-3">
+              <div className="bg-gradient-forest p-2 rounded-xl shadow-nature">
+                <GraduationCap className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <span className="text-xl font-bold text-gradient">Oxford College</span>
+                <p className="text-xs text-sage-600 -mt-1">Technology Excellence</p>
+              </div>
+            </div>
+            <div className="hidden md:flex items-center space-x-8">
+              <a href="#about" className="text-sage-600 hover:text-primary-600 transition-colors">About</a>
+              <a href="#courses" className="text-sage-600 hover:text-primary-600 transition-colors">Courses</a>
+              <a href="#facilities" className="text-sage-600 hover:text-primary-600 transition-colors">Facilities</a>
+              <a href="#placements" className="text-sage-600 hover:text-primary-600 transition-colors">Placements</a>
+              <a href="#contact" className="text-sage-600 hover:text-primary-600 transition-colors">Contact</a>
+            </div>
+            <div className="flex items-center space-x-4">
+              <button className="btn-secondary">
+                <Download className="w-4 h-4" />
+                <span>Prospectus</span>
+              </button>
+              <button 
+                onClick={() => navigate('/login')}
+                className="btn-primary"
+              >
+                <LogIn className="w-4 h-4" />
+                <span>Login</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </motion.nav> */}
       <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -191,141 +231,79 @@ const handleLearnMore = (course: Course) => {
       
       {/* Hero Section */}
       <section className="pt-16 relative overflow-hidden">
-  {/* Background decorations */}
-  <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-primary-200/30 to-secondary-200/30 rounded-full -translate-y-48 translate-x-48 animate-pulse"></div>
-  <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-forest-200/40 to-accent-200/40 rounded-full translate-y-32 -translate-x-32 animate-spin-slow"></div>
-
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-      {/* Left content */}
-      <motion.div
-        initial={{ opacity: 0, x: -50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        <div className="flex items-center space-x-2 mb-4">
-          <Brain className="w-6 h-6 text-primary-600 animate-bounce" />
-          <span className="text-primary-600 font-medium tracking-wide">
-            AI & Technology Education
-          </span>
-        </div>
-        <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-4 leading-tight">
-          <motion.span
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1 }}
-          >
-            Shape Your Future at
-          </motion.span>
-          <motion.span
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.4, duration: 1 }}
-            className="text-gradient block"
-          >
-            Oxford College
-          </motion.span>
-        </h1>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 0.8 }}
-          className="text-xl text-sage-600 mb-8 leading-relaxed"
-        >
-          Leading the way in AI, Machine Learning, and Computer Science education. Join our tech-focused community and become an industry leader.
-        </motion.p>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.2, duration: 0.8 }}
-          className="flex flex-col sm:flex-row gap-4"
-        >
-          <button 
-            onClick={() => navigate('/login')}
-            className="btn-primary group"
-          >
-            <LogIn className="w-5 h-5 group-hover:scale-110 transition-transform" />
-            <span>Access ERP Portal</span>
-          </button>
-          <DownloadButton
-            fileLink="/files/Oxford_Brochure_Placeholder.pdf"
-            label="Download Prospectus"
-            countdown={5}
-            className="btn-secondary"
-            forceDownload={true}
-          />
-        </motion.div>
-      </motion.div>
-
-      {/* Right image + badge */}
-      <motion.div
-        initial={{ opacity: 0, x: 50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        className="relative"
-      >
-        <div className="relative">
-          <motion.img
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 1 }}
-            src="https://images.pexels.com/photos/1595391/pexels-photo-1595391.jpeg?auto=compress&cs=tinysrgb&w=800" 
-            alt="Oxford College Tech Campus"
-            className="rounded-3xl shadow-forest"
-          />
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1, duration: 0.6 }}
-            className="absolute -bottom-6 -left-6 card-nature p-6"
-          >
-            <div className="flex items-center space-x-4">
-              <div className="bg-gradient-forest p-3 rounded-xl">
-                <Award className="w-6 h-6 text-white" />
+        
+        {/* Background decorations */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-primary-200/30 to-secondary-200/30 rounded-full -translate-y-48 translate-x-48"></div>
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-forest-200/40 to-accent-200/40 rounded-full translate-y-32 -translate-x-32"></div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <div className="flex items-center space-x-2 mb-4">
+                <Brain className="w-6 h-6 text-primary-600 animate-float" />
+                <span className="text-primary-600 font-medium">AI & Technology Education</span>
               </div>
-              <div>
-                <p className="font-semibold text-gray-900">NAAC A+ Accredited</p>
-                <p className="text-sm text-sage-600">Top Tech Institution</p>
+              <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+                Shape Your Future at
+                <span className="text-gradient block">Oxford College</span>
+              </h1>
+              <p className="text-xl text-sage-600 mb-8 leading-relaxed">
+                Leading the way in AI, Machine Learning, and Computer Science education. Join our tech-focused community and become an industry leader.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <button 
+                  onClick={() => navigate('/login')}
+                  className="btn-primary group"
+                >
+                  <LogIn className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                  <span>Access ERP Portal</span>
+                </button>
+               
+                  <DownloadButton
+                   fileLink="/files/Oxford_Brochure_Placeholder.pdf"   // ⬅️ update path to your PDF
+                   label="Download Prospectus"
+                   countdown={5}                            // seconds before download starts
+                    className="btn-secondary"
+                    forceDownload={true}
+                />
+          
               </div>
-            </div>
-          </motion.div>
-        </div>
-      </motion.div>
-    </div>
-
-    {/* Stats Section */}
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-      className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-6 text-center"
-    >
-      {[
-        { label: 'Years of Excellence', value: '35+', icon: Brain },
-        { label: 'Tech Graduates', value: '10K+', icon: Users },
-        { label: 'Placement Rate', value: '95%', icon: TrendingUp },
-        { label: 'Courses Offered', value: '50+', icon: BookOpen }
-      ].map((item, idx) => (
-        <motion.div
-          key={idx}
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: idx * 0.1, duration: 0.6 }}
-          className="p-4 rounded-xl bg-white/60 backdrop-blur border border-primary-100 shadow-nature"
-        >
-          <div className="mb-2 flex justify-center">
-            <item.icon className="w-6 h-6 text-primary-600" />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="relative"
+            >
+              <div className="relative">
+                <img 
+                  src="https://images.pexels.com/photos/1595391/pexels-photo-1595391.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                  alt="Oxford College Tech Campus"
+                  className="rounded-3xl shadow-forest"
+                />
+                <div className="absolute -bottom-6 -left-6 card-nature p-6">
+                  <div className="flex items-center space-x-4">
+                    <div className="bg-gradient-forest p-3 rounded-xl">
+                      <Award className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-900">NAAC A+ Accredited</p>
+                      <p className="text-sm text-sage-600">Top Tech Institution</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+           
           </div>
-          <h3 className="text-2xl font-bold text-gray-900">{item.value}</h3>
-          <p className="text-sage-600 text-sm">{item.label}</p>
-        </motion.div>
-      ))}
-    </motion.div>
-  </div>
-
-  <Announcements />
-</section>
-
+           {/* <Announcements/> */}
+        </div>
+        <Announcements/>
+      </section>
       {/* About Section */}
       <section id="about" className="py-20 bg-white/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
