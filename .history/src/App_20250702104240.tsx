@@ -16,8 +16,6 @@ import AnalyticsPage from './pages/AnalyticsPage';
 import NotificationCenter from './components/WhatsApp/NotificationCenter';
 import ScrollToTop from './components/ScrollToTop';
 import PrivacyPolicy from './pages/PrivacyPolicy';
-import TermsAndConditions from './pages/TermsAndConditions';
-import Contact from './pages/Contact';
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { user } = useAuth();
   return user ? <>{children}</> : <Navigate to="/login" />;
@@ -66,7 +64,7 @@ const AppRoutes: React.FC = () => {
           <MarksManagement />
         </ProtectedRoute>
       } />
-      <Route path="/contact" element={<Contact />} />
+      
       <Route path="/fees" element={
         <ProtectedRoute>
           <FeeManagement />
@@ -85,7 +83,6 @@ const AppRoutes: React.FC = () => {
         </ProtectedRoute>
       } />
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-      <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
       <Route path="/analytics" element={
         <ProtectedRoute>
           <AnalyticsPage />

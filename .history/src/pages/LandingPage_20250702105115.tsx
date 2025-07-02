@@ -533,7 +533,7 @@ const handleLearnMore = (course: Course) => {
                 <span className="text-sage-600">|</span>
                 <a href="/terms-and-conditions" className="text-sage-400 hover:text-white transition-colors">Terms</a>
                 <span className="text-sage-600">|</span>
-                <a href="/contact" className="text-sage-400 hover:text-white transition-colors">Contact</a>
+                <a href="#" className="text-sage-400 hover:text-white transition-colors">Contact</a>
               </div>
             </div>
           </div>
