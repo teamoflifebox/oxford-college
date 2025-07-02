@@ -650,12 +650,9 @@ const LandingPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
       <NavBar />
-     
-
       
       {/* Enhanced Hero Section */}
-      <section className="pt-16 relative overflow-hidden min-h-[60vh]">
-         <Announcements />
+      <section className="pt-16 relative overflow-hidden min-h-screen">
         {/* Animated Background Pattern */}
         <div className="absolute inset-0 hero-grid-pattern opacity-30"></div>
         
@@ -667,15 +664,15 @@ const LandingPage: React.FC = () => {
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center min-h-screen">
             
             {/* Left Content - 5 columns */}
             <div className="lg:col-span-5 space-y-8 animate-slideInLeft">
               {/* Badge */}
-             {/* <div className="inline-flex items-center space-x-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full shadow-lg animate-scaleIn">
+              <div className="inline-flex items-center space-x-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full shadow-lg animate-scaleIn">
                 <Zap className="w-5 h-5 animate-bounce" />
                 <span className="font-semibold">Leading Tech Education Since 1985</span>
-              </div> */}
+              </div>
 
               {/* Main Heading */}
               <div className="space-y-6">
@@ -713,7 +710,7 @@ const LandingPage: React.FC = () => {
               </div>
 
               {/* Quick Stats */}
-              <div className="grid grid-cols-2 gap-6 pt-8 animate-fadeInUp" style={{animationDelay: '1s'}}>
+              {/* <div className="grid grid-cols-2 gap-6 pt-8 animate-fadeInUp" style={{animationDelay: '1s'}}>
                 {[
                   { icon: Shield, label: 'NAAC A+ Accredited', value: '2024', color: 'text-green-600' },
                   { icon: Globe, label: 'Global Recognition', value: '50+', color: 'text-blue-600' },
@@ -730,7 +727,7 @@ const LandingPage: React.FC = () => {
                     </div>
                   </div>
                 ))}
-              </div>
+              </div> */}
             </div>
 
             {/* Right Visual Content - 7 columns */}
@@ -773,7 +770,7 @@ const LandingPage: React.FC = () => {
                     <div className="image-overlay absolute inset-0 flex items-center justify-center">
                       <div className="text-center text-white">
                         <Code className="w-8 h-8 mx-auto mb-2" />
-                        <span className="font-semibold text-brandBlue">Tech Labs</span>
+                        <span className="font-semibold">Tech Labs</span>
                       </div>
                     </div>
                   </div>
@@ -798,17 +795,17 @@ const LandingPage: React.FC = () => {
               </div>
 
               {/* Floating Achievement Cards */}
-              <div className="floating-card absolute -top-6 -left-6 glass-effect p-6 rounded-2xl shadow-glow border border-white/20" style={{'--delay': '0s'} as any}>
+              {/* <div className="floating-card absolute -top-6 -left-6 glass-effect p-6 rounded-2xl shadow-glow border border-white/20" style={{'--delay': '0s'} as any}>
                 <div className="flex items-center space-x-4">
                   <div className="bg-gradient-to-r from-green-500 to-teal-500 p-3 rounded-xl">
                     <Award className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <p className="font-bold text-brandPurple-900">10K+ Alumni</p>
-                    <p className="text-sm text-brandPurple-600">Success Stories</p>
+                    <p className="font-bold text-gray-900">10K+ Alumni</p>
+                    <p className="text-sm text-gray-600">Success Stories</p>
                   </div>
                 </div>
-              </div>
+              </div> */}
 
               <div className="floating-card absolute -bottom-6 -right-6 glass-effect p-6 rounded-2xl shadow-glow border border-white/20" style={{'--delay': '1s'} as any}>
                 <div className="flex items-center space-x-4">
@@ -863,7 +860,8 @@ const LandingPage: React.FC = () => {
         </div>
       </section>
 
-      
+      <Announcements />
+
       {/* About Section */}
       <section id="about" className="py-20 bg-white/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -650,12 +650,9 @@ const LandingPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
       <NavBar />
-     
-
       
       {/* Enhanced Hero Section */}
       <section className="pt-16 relative overflow-hidden min-h-[60vh]">
-         <Announcements />
         {/* Animated Background Pattern */}
         <div className="absolute inset-0 hero-grid-pattern opacity-30"></div>
         
@@ -773,7 +770,7 @@ const LandingPage: React.FC = () => {
                     <div className="image-overlay absolute inset-0 flex items-center justify-center">
                       <div className="text-center text-white">
                         <Code className="w-8 h-8 mx-auto mb-2" />
-                        <span className="font-semibold text-brandBlue">Tech Labs</span>
+                        <span className="font-semibold text-brandTale">Tech Labs</span>
                       </div>
                     </div>
                   </div>
@@ -804,8 +801,8 @@ const LandingPage: React.FC = () => {
                     <Award className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <p className="font-bold text-brandPurple-900">10K+ Alumni</p>
-                    <p className="text-sm text-brandPurple-600">Success Stories</p>
+                    <p className="font-bold text-gray-900">10K+ Alumni</p>
+                    <p className="text-sm text-gray-600">Success Stories</p>
                   </div>
                 </div>
               </div>
@@ -863,7 +860,8 @@ const LandingPage: React.FC = () => {
         </div>
       </section>
 
-      
+      <Announcements />
+
       {/* About Section */}
       <section id="about" className="py-20 bg-white/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

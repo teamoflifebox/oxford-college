@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
-  GraduationCap,
   ChevronDown,
   Menu,
   X,
@@ -21,7 +20,7 @@ const NavBar: React.FC = () => {
           <div className="flex items-center space-x-3">
             <div className="bg-gradient-forest p-2 rounded-xl shadow-nature">
               {/* You can swap this for your logo */}
-              <GraduationCap/>
+              <span className="text-white font-bold">Logo</span>
             </div>
             <div>
               <span className="text-xl font-bold text-gradient">Oxford College</span>

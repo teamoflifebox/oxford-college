@@ -650,12 +650,11 @@ const LandingPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
       <NavBar />
-     
+      <Announcements />
 
       
       {/* Enhanced Hero Section */}
       <section className="pt-16 relative overflow-hidden min-h-[60vh]">
-         <Announcements />
         {/* Animated Background Pattern */}
         <div className="absolute inset-0 hero-grid-pattern opacity-30"></div>
         
