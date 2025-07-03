@@ -45,7 +45,7 @@ const AppRoutes: React.FC = () => {
           <ProfilePage />
         </ProtectedRoute>
       } />
-      <Route path="/careers" element={<CareersPage />} />
+      
       <Route path="/students" element={
         <ProtectedRoute>
           <StudentManagement />

@@ -19,8 +19,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsAndConditions from './pages/TermsAndConditions';
 import Contact from './pages/Contact';
 import InnovationLab from './pages/InnovationLab';
-import CampusGallery from './pages/CampusGallery';
-import CareersPage from './pages/Careers';
+import CampusGallery from './pages/CampusGallery';'./pages/CampusGallery.tsx'
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { user } = useAuth();
   return user ? <>{children}</> : <Navigate to="/login" />;
@@ -45,7 +44,7 @@ const AppRoutes: React.FC = () => {
           <ProfilePage />
         </ProtectedRoute>
       } />
-      <Route path="/careers" element={<CareersPage />} />
+      
       <Route path="/students" element={
         <ProtectedRoute>
           <StudentManagement />

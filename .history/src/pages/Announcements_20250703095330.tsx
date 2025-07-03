@@ -38,7 +38,7 @@ const Announcements = () => {
         animate={{ x: ['100%', '-100%'] }}
         transition={{
           repeat: Infinity,
-          duration: 50,
+          duration: 40,
           ease: 'linear'
         }}
       >

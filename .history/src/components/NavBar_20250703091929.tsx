@@ -43,7 +43,7 @@ const NavBar: React.FC = () => {
               </div>
             </div>
             <a href="/innovation-lab" className="text-sage-600 hover:text-primary-600 transition-colors">Innovation Lab</a>
-            <a href="/careers" className="text-sage-600 hover:text-primary-600 transition-colors">Careers</a>
+            <a href="#careers" className="text-sage-600 hover:text-primary-600 transition-colors">Careers</a>
             <a href="/gallery" className="text-sage-600 hover:text-primary-600 transition-colors">Campus Gallery</a>
             <a href="/" className="text-sage-600 hover:text-primary-600 transition-colors">Home</a>
           </div>
