@@ -18,6 +18,7 @@ import ScrollToTop from './components/ScrollToTop';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsAndConditions from './pages/TermsAndConditions';
 import Contact from './pages/Contact';
+import InnovationLab from './pages/InnovationLab';
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { user } = useAuth();
   return user ? <>{children}</> : <Navigate to="/login" />;
@@ -86,6 +87,7 @@ const AppRoutes: React.FC = () => {
       } />
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+      <Route path="/innovation-lab" element={<InnovationLab/>}/>
       <Route path="/analytics" element={
         <ProtectedRoute>
           <AnalyticsPage />
